@@ -7,11 +7,11 @@ class AppColors {
       ? Color(0xff21D4B4)
       : Color(0xff21D4B4);
   static Color get cyan50 => AppTheme.currentTheme == ThemeMode.light
-      ? Color(0xffF4FDFA)
+      ? Color.fromARGB(255, 211, 240, 230)
       : Color(0xff212322);
   static Color get black => AppTheme.currentTheme == ThemeMode.light
-      ? Color(0xff1C1B1B)
-      : Color(0xff1C1B1B);
+      ? Color(0xFF1C1B1B)
+      : Color(0xFF1C1B1B);
   static Color get white => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xffFFFFFF)
       : Color(0xffFFFFFF);

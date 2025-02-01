@@ -26,17 +26,19 @@ class AppTheme {
       titleLarge: TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.bold,
-        fontSize: 32.sp,
+        fontFamily: 'Plus Jakarta Sans',
+        fontSize: 24.sp,
       ),
       titleMedium: TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w600,
-        fontSize: 24.sp,
+        fontFamily: 'Plus Jakarta Sans',
+        fontSize: 18.sp,
       ),
       titleSmall: TextStyle(
-        color: AppColors.black,
-        fontWeight: FontWeight.normal,
-        fontSize: 18,
+        color: AppColors.grey150,
+        fontFamily: 'Plus Jakarta Sans',
+        fontSize: 14.sp,
       ),
     ),
   );
@@ -61,18 +63,21 @@ class AppTheme {
     textTheme: TextTheme(
       titleLarge: TextStyle(
         color: AppColors.white,
+        fontFamily: 'Plus Jakarta Sans',
         fontWeight: FontWeight.bold,
-        fontSize: 32.sp,
+        fontSize: 24.sp,
       ),
       titleMedium: TextStyle(
         color: AppColors.white,
+        fontFamily: 'Plus Jakarta Sans',
         fontWeight: FontWeight.w600,
-        fontSize: 24.sp,
+        fontSize: 18.sp,
       ),
       titleSmall: TextStyle(
         color: AppColors.white,
         fontWeight: FontWeight.normal,
-        fontSize: 18,
+        fontFamily: 'Plus Jakarta Sans',
+        fontSize: 14.sp,
       ),
     ),
   );
