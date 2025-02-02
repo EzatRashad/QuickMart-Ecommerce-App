@@ -7,10 +7,9 @@ import 'package:quick_mart_app/core/widgets/app_icon.dart';
 import 'package:quick_mart_app/core/widgets/auth_title.dart';
 import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/custom_text_form_filed.dart';
+import 'package:quick_mart_app/features/login/presentation/views/widgets/forget_paaword_text.dart';
 import 'package:quick_mart_app/features/login/presentation/views/widgets/text_rich.dart';
 import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
-
-import '../../../../../core/utils/app_color.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -19,11 +18,11 @@ class LoginViewBody extends StatefulWidget {
   State<LoginViewBody> createState() => _LoginViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _LoginViewBodyState extends State<LoginViewBody>
+    with SingleTickerProviderStateMixin {
   TextEditingController email = TextEditingController();
 
   TextEditingController password = TextEditingController();
-
   bool obscureText = true;
 
   @override
@@ -73,16 +72,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 ),
               ),
               24.ph,
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "Forgot password?",
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: AppColors.cyan,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
+              ForgetPaawordText(),
               SizedBox(height: MediaQuery.sizeOf(context).height * .04),
               CustomButton(text: "Login"),
               SizedBox(height: MediaQuery.sizeOf(context).height * .05),
