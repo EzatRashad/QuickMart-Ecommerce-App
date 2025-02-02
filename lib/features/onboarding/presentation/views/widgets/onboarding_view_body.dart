@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart_app/core/utils/app_color.dart';
-import 'package:quick_mart_app/core/utils/assets.gen.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/widgets/action_section.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/widgets/desc_section.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/widgets/image_container.dart';
@@ -20,10 +17,10 @@ class OnboardingViewBody extends StatelessWidget {
           children: [
             54.ph,
             ImageContainer(),
-            24.ph,
+            SizedBox(height: MediaQuery.sizeOf(context).height * .05),
             DescSection(),
-            24.ph,
-          ActionSection(),
+            SizedBox(height: MediaQuery.sizeOf(context).height * .05),
+            ActionSection(),
           ],
         ),
       ),

@@ -74,8 +74,7 @@ class AppTheme {
         fontSize: 18.sp,
       ),
       titleSmall: TextStyle(
-        color: AppColors.white,
-        fontWeight: FontWeight.normal,
+        color: AppColors.grey150,
         fontFamily: 'Plus Jakarta Sans',
         fontSize: 14.sp,
       ),

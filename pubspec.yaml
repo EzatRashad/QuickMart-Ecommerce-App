@@ -34,8 +34,9 @@ dependencies:
   flutter_native_splash: null
   flutter_screenutil: null
   flutter_svg: null
-  provider: ^6.1.2
-  shared_preferences: ^2.5.1
+  provider:  
+  shared_preferences:
+  font_awesome_flutter:  
 
 dev_dependencies:
   build_runner: null

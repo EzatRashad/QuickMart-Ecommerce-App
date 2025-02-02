@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
+import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
 
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -21,8 +23,14 @@ class ActionSection extends StatelessWidget {
         ),
         8.pw,
         Expanded(
-          child: CustomButton(
-            text: "Signup",
+          child: GestureDetector(
+            child: CustomButton(
+              text: "Signup",
+              onPressed: () {
+                
+                context.nextScreen(SignupView());
+              },
+            ),
           ),
         ),
       ],
