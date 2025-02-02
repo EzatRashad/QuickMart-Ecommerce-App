@@ -36,7 +36,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               SizedBox(height: MediaQuery.sizeOf(context).height * .03),
               AuthTitle(
                 title: "Signup",
-                span1: 'Already have an account? ',
+                span1: 'Already have an account?  ',
                 span2: 'Login',
                 onTap: () {
                   context.nextScreen(LoginView());
