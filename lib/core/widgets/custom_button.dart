@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Function()? onPressed;
   final Decoration? decoration;
-  @override
+   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
