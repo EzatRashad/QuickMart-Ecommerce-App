@@ -4,12 +4,13 @@ import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
-  const CustomTextFormFiled({super.key, required this.title, required this.controller, this.obscureText=false, required this.hintText, this.suffixIcon});
+  const CustomTextFormFiled({super.key, required this.title, required this.controller, this.obscureText=false, required this.hintText, this.suffixIcon, this.validator});
   final String title;
   final String hintText;
   final TextEditingController controller;
   final bool obscureText;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,8 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         8.ph,
         TextFormField(
+          
+          validator: validator,
           cursorColor: AppColors.cyan,
           controller:controller ,
           obscureText: obscureText,
