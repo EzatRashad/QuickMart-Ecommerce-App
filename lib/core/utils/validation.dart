@@ -28,7 +28,7 @@ class Validation {
     if (value.isEmpty) {
       return 'Password cannot be empty';
     } else if (!passwordRegExp.hasMatch(value)) {
-      return 'Password must be at least 8 characters\n long and contain at least one\n uppercase letter and one number';
+      return 'Password must be at least 8 characters long and contain at least one uppercase letter and one number';
     }
     return null;
   }

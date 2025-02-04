@@ -4,7 +4,14 @@ import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
-  const CustomTextFormFiled({super.key, required this.title, required this.controller, this.obscureText=false, required this.hintText, this.suffixIcon, this.validator});
+  const CustomTextFormFiled(
+      {super.key,
+      required this.title,
+      required this.controller,
+      this.obscureText = false,
+      required this.hintText,
+      this.suffixIcon,
+      this.validator});
   final String title;
   final String hintText;
   final TextEditingController controller;
@@ -23,36 +30,42 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         8.ph,
         TextFormField(
-          
           validator: validator,
           cursorColor: AppColors.cyan,
-          controller:controller ,
+          controller: controller,
           obscureText: obscureText,
-          
           decoration: InputDecoration(
             suffixIcon: suffixIcon,
-            hintText:hintText ,
+            hintText: hintText,
             hintStyle: Theme.of(context).textTheme.titleSmall,
-            enabledBorder:
-          OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide: BorderSide(
-              color: AppColors.grey100,
-              width: 0.5,
-            ),
-            
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-              color: AppColors.cyan,
-              width: 1,
+                color: AppColors.grey100,
+                width: 0.5,
+              ),
             ),
-            
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-          ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.cyan,
+                width: 1,
+              ),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide(
+                width: .5,
+              ),
+            ),
+             errorMaxLines: 3,
+            errorStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: AppColors.red,
+                ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.red,
+                width: .5,
+              ),
+            ),
           ),
         )
       ],

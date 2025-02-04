@@ -108,9 +108,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 SizedBox(height: MediaQuery.sizeOf(context).height * .03),
                 CustomButton(text: "Create Account",onPressed: () {
                   if(formKey.currentState!.validate()){
-                    
+
                   }
-                },)
+                },),
               ],
             ),
           ),

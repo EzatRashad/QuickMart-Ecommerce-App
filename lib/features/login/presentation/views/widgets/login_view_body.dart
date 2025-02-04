@@ -11,6 +11,8 @@ import 'package:quick_mart_app/features/login/presentation/views/widgets/forget_
 import 'package:quick_mart_app/features/login/presentation/views/widgets/text_rich.dart';
 import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
 
+import '../../../../../core/utils/validation.dart';
+
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
@@ -24,6 +26,7 @@ class _LoginViewBodyState extends State<LoginViewBody>
 
   TextEditingController password = TextEditingController();
   bool obscureText = true;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,53 +34,64 @@ class _LoginViewBodyState extends State<LoginViewBody>
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: MediaQuery.sizeOf(context).height * .08),
-              AppIcon(),
-              SizedBox(height: MediaQuery.sizeOf(context).height * .03),
-              AuthTitle(
-                title: "Login",
-                span1: 'Don’t have an account?  ',
-                span2: 'Signup',
-                onTap: () {
-                  context.nextScreen(SignupView());
-                },
-              ),
-              SizedBox(height: MediaQuery.sizeOf(context).height * .03),
-              CustomTextFormFiled(
-                title: "Email",
-                controller: email,
-                hintText: 'Enter your Email',
-              ),
-              16.ph,
-              CustomTextFormFiled(
-                title: "Password",
-                controller: password,
-                hintText: 'Enter your Password',
-                obscureText: obscureText,
-                suffixIcon: GestureDetector(
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: MediaQuery.sizeOf(context).height * .08),
+                AppIcon(),
+                SizedBox(height: MediaQuery.sizeOf(context).height * .03),
+                AuthTitle(
+                  title: "Login",
+                  span1: 'Don’t have an account?  ',
+                  span2: 'Signup',
                   onTap: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
+                    context.nextScreen(SignupView());
                   },
-                  child: Icon(
-                    obscureText
-                        ? FontAwesomeIcons.eyeSlash
-                        : FontAwesomeIcons.eye,
-                    size: 24.w,
+                ),
+                SizedBox(height: MediaQuery.sizeOf(context).height * .03),
+                CustomTextFormFiled(
+                  title: "Email",
+                  controller: email,
+                  hintText: 'Enter your Email',
+                                    validator: (value) => Validation.validateEmail(value!),
+            
+                ),
+                16.ph,
+                CustomTextFormFiled(
+                  title: "Password",
+                  controller: password,
+                  hintText: 'Enter your Password',
+                  obscureText: obscureText,
+                                    validator: (value) => Validation.validatePassword(value!),
+            
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                    child: Icon(
+                      obscureText
+                          ? FontAwesomeIcons.eyeSlash
+                          : FontAwesomeIcons.eye,
+                      size: 24.w,
+                    ),
                   ),
                 ),
-              ),
-              24.ph,
-              ForgetPaawordText(),
-              SizedBox(height: MediaQuery.sizeOf(context).height * .04),
-              CustomButton(text: "Login"),
-              SizedBox(height: MediaQuery.sizeOf(context).height * .05),
-              TextRich(),
-            ],
+                24.ph,
+                ForgetPaawordText(),
+                SizedBox(height: MediaQuery.sizeOf(context).height * .04),
+                CustomButton(text: "Login",onPressed: () {
+                    if(formKey.currentState!.validate()){
+                      
+                    }
+                  },),
+                SizedBox(height: MediaQuery.sizeOf(context).height * .05),
+                TextRich(),
+              ],
+            ),
           ),
         ),
       ),
