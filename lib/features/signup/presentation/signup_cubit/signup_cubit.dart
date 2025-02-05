@@ -1,14 +1,14 @@
 import 'dart:developer'; 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quick_mart_app/features/signup/data/repos/signup_repo.dart';
+import 'package:quick_mart_app/features/signup/domain/use_case/signup_use_case.dart';
 
 import '../../data/model/register_request.dart';
 import 'signup_states.dart';
 
 class SignupCubit extends Cubit<SignupStates> {
-  SignupCubit({required this.signupRepo}) : super(SignupInitialState());
-  SignupRepo signupRepo;
+  SignupCubit({required this.signupUseCase}) : super(SignupInitialState());
+  SignupUseCase signupUseCase;
   TextEditingController email = TextEditingController();
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
@@ -22,7 +22,7 @@ class SignupCubit extends Cubit<SignupStates> {
     if (formKey.currentState!.validate()) {
       emit(SignupLoadingState());
       try {
-        var response = await signupRepo.signup(
+        var response = await signupUseCase.signup(
            RegisterRequest(
                 name: name.text,
                 email: email.text,

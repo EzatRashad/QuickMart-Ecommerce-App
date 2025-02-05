@@ -11,6 +11,7 @@ import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/custom_text_form_filed.dart';
 import 'package:quick_mart_app/features/signup/data/data_source/signup_remote_data_source/signup_remote_data_source_impl.dart';
 import 'package:quick_mart_app/features/signup/data/repos/signup_repo_impl.dart';
+import 'package:quick_mart_app/features/signup/domain/use_case/signup_use_case.dart';
 import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_cubit.dart';
 import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_states.dart';
 
@@ -27,9 +28,16 @@ class SignupViewBody extends StatefulWidget {
 
 class _SignupViewBodyState extends State<SignupViewBody> {
   SignupCubit signupCubit = SignupCubit(
+    signupUseCase: SignupUseCase(
       signupRepo: SignupRepoImpl(
-          signupRemoteDataSource:
-              SignupRemoteDataSourceImpl(ApiService(Dio()))));
+        signupRemoteDataSource: SignupRemoteDataSourceImpl(
+          ApiService(
+            Dio(),
+          ),
+        ),
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:quick_mart_app/features/signup/data/model/register_request.dart';
 import 'package:quick_mart_app/features/signup/data/model/register_response.dart';
-import 'package:quick_mart_app/features/signup/data/repos/signup_repo.dart';
+import 'package:quick_mart_app/features/signup/domain/repo/signup_repo.dart';
 
-import '../data_source/signup_remote_data_source/signup_remote_data_source.dart';
+import '../../domain/data_source/signup_remote_data_source/signup_remote_data_source.dart';
 
 class SignupRepoImpl implements SignupRepo {
   SignupRemoteDataSource signupRemoteDataSource;
