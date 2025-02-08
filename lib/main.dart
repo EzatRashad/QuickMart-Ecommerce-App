@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_theme.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/onboarding_view.dart';
 
+import 'features/home/presentation/view/home_view.dart';
+
 
 void main(){
   //  await CasheHelper.init();
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: AppTheme.currentTheme,
-          home: const OnboardingView(),
+          home: const HomeView(),
         );
       },
     );
