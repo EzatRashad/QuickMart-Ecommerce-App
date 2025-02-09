@@ -31,7 +31,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    12.ph,
                     HomeCarousel(),
                     12.ph,
                     HeadLine(title: "Categories", onTap: () {}),

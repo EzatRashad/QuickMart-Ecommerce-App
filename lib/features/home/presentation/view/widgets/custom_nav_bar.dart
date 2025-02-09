@@ -24,7 +24,6 @@ int selectedIndex = 0;
         child: BottomNavigationBar(
              backgroundColor: AppColors.white,
             elevation: 0,
-            type: BottomNavigationBarType.fixed,
             currentIndex: selectedIndex,
             selectedItemColor: AppColors.black,
             unselectedFontSize: 14.sp,
@@ -37,21 +36,21 @@ int selectedIndex = 0;
             items: [
               BottomNavigationBarItem(
                   icon: Assets.images.homeIcon.image(
-                    height: 24.h,
+                    height: 20.h,
                     color:
                         selectedIndex == 0 ? AppColors.cyan : AppColors.grey150,
                   ),
                   label: "Home"),
               BottomNavigationBarItem(
                   icon: Assets.images.cartIcon.image(
-                    height: 24.h,
+                    height: 20.h,
                     color:
                         selectedIndex == 1 ? AppColors.cyan : AppColors.grey150,
                   ),
                   label: "My Cart"),
               BottomNavigationBarItem(
                   icon: Assets.images.favIcon.image(
-                    height: 24.h,
+                    height: 20.h,
                     color:
                         selectedIndex == 2 ? AppColors.cyan : AppColors.grey150,
                   ),
