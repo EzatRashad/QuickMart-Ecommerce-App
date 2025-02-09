@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
+import 'package:quick_mart_app/features/home/presentation/view/widgets/custom_nav_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/head_line.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_carousel.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/categories_list.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/product_grid.dart';
-import 'package:quick_mart_app/features/home/presentation/view/widgets/product_item.dart';
+
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -16,13 +17,14 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  @override
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomNavBar(),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 2.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w,),
           child: CustomScrollView(
             slivers: [
               HomeAppBar(),
@@ -41,8 +43,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   ],
                 ),
               ),
-              const ProductGrid(), 
-
+              const ProductGrid(),
             ],
           ),
         ),

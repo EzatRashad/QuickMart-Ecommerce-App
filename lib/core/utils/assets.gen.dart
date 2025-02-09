@@ -15,12 +15,31 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/cart_icon.png
+  AssetGenImage get cartIcon =>
+      const AssetGenImage('assets/images/cart_icon.png');
+
+  /// File path: assets/images/fav_icon.png
+  AssetGenImage get favIcon =>
+      const AssetGenImage('assets/images/fav_icon.png');
+
+  /// File path: assets/images/home_icon.png
+  AssetGenImage get homeIcon =>
+      const AssetGenImage('assets/images/home_icon.png');
+
   /// File path: assets/images/online Shopping.png
   AssetGenImage get onlineShopping =>
       const AssetGenImage('assets/images/online Shopping.png');
 
+  /// File path: assets/images/panner.png
+  AssetGenImage get panner => const AssetGenImage('assets/images/panner.png');
+
   /// File path: assets/images/person.png
   AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
+  /// File path: assets/images/profile_icon.png
+  AssetGenImage get profileIcon =>
+      const AssetGenImage('assets/images/profile_icon.png');
 
   /// File path: assets/images/quickmartdark.png
   AssetGenImage get quickmartdark =>
@@ -47,8 +66,13 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        cartIcon,
+        favIcon,
+        homeIcon,
         onlineShopping,
+        panner,
         person,
+        profileIcon,
         quickmartdark,
         quickmartlight,
         searchNormal,
