@@ -19,6 +19,10 @@ class $AssetsImagesGen {
   AssetGenImage get cartIcon =>
       const AssetGenImage('assets/images/cart_icon.png');
 
+  /// File path: assets/images/category_icon.png
+  AssetGenImage get categoryIcon =>
+      const AssetGenImage('assets/images/category_icon.png');
+
   /// File path: assets/images/fav_icon.png
   AssetGenImage get favIcon =>
       const AssetGenImage('assets/images/fav_icon.png');
@@ -67,6 +71,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
         cartIcon,
+        categoryIcon,
         favIcon,
         homeIcon,
         onlineShopping,

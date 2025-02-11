@@ -14,11 +14,7 @@ class HomeAppBar extends StatelessWidget {
       pinned: false,
       floating: true,
       snap: true,
-      leading: SizedBox(
-        height: 32.h,
-        width: 104.w,
-        child: Assets.images.quickmartlight.image(),
-      ),
+      leading: Assets.images.quickmartlight.image(),
       actions: [
         Assets.images.searchNormal.svg(
           width: 32.w,

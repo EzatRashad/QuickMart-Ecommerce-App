@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import 'package:quick_mart_app/features/home/presentation/view/widgets/custom_nav_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/head_line.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_carousel.dart';
@@ -17,20 +16,22 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomNavBar(),
+
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.w,),
+          padding: EdgeInsets.symmetric(
+            horizontal: 16.0.w,
+          ),
           child: CustomScrollView(
             slivers: [
               HomeAppBar(),
               SliverToBoxAdapter(
                 child: Column(
                   children: [
+                    12.ph,
                     HomeCarousel(),
                     12.ph,
                     HeadLine(title: "Categories", onTap: () {}),
@@ -48,5 +49,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         ),
       ),
     );
+
+    
   }
 }

@@ -51,7 +51,10 @@ class ProductItem extends StatelessWidget {
                 ]),
                 3.ph,
                 Text(
-                  'Classic new black glasses',
+                  'Classic new black glasses for men and women',
+
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
