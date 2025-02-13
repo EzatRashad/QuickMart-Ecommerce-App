@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/category_widget_model.dart';
 
-import '../../../../../core/widgets/common_app_bar.dart';
 
 class CategoriesItem extends StatelessWidget {
   const CategoriesItem({super.key, required this.categoryWidgetModel});
@@ -16,7 +16,7 @@ final CategoryWidgetModel categoryWidgetModel;
         Container(
           height: 100.h,
           width: 160.w,
-          decoration: ShapeDecoration(
+          decoration: ShapeDecoration(color: AppColors.grey50,
             image: DecorationImage(
               image: NetworkImage("https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
               fit: BoxFit.fill,

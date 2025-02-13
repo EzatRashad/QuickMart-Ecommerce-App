@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart_app/features/home/presentation/view/widgets/product_item.dart';
+import 'package:quick_mart_app/core/widgets/product_item.dart';
 
 class ProductGrid extends StatelessWidget {
   const ProductGrid({super.key});
