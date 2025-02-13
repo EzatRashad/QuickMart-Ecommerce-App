@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_mart_app/features/home/presentation/view/home_view.dart';
+import '../../../../categories/presentation/views/categories_view.dart';
 import '../../../../home/presentation/view/widgets/custom_nav_bar.dart';
 import '../../cubit/layout_cubit.dart';
 import '../../cubit/layout_states.dart';
@@ -26,7 +27,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
           bottomNavigationBar: CustomNavBar(
             homeCubit: layoutCubit,
           ),
-          body: HomeView(),
+          body: layoutCubit.screens[layoutCubit.selectedIndex],
         );
       },
     );
