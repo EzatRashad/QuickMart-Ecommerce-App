@@ -41,6 +41,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/person.png
   AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
+  /// File path: assets/images/product.png
+  AssetGenImage get product => const AssetGenImage('assets/images/product.png');
+
   /// File path: assets/images/profile_icon.png
   AssetGenImage get profileIcon =>
       const AssetGenImage('assets/images/profile_icon.png');
@@ -77,6 +80,7 @@ class $AssetsImagesGen {
         onlineShopping,
         panner,
         person,
+        product,
         profileIcon,
         quickmartdark,
         quickmartlight,

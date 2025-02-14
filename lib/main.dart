@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_theme.dart';
+import 'package:quick_mart_app/features/home/presentation/view/product_details_view.dart';
 import 'package:quick_mart_app/features/layout/presentation/view/layout_view.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/onboarding_view.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: AppTheme.currentTheme,
 
-          home: const LayoutView(),
+          home:   ProductDetailsView(),
 
         );
       },
