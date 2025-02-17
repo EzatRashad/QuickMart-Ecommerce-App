@@ -9,7 +9,12 @@ AppBar commonAppBar({
   List<Widget>? actions,
 }) =>
     AppBar(
-      leading: Icon(Icons.arrow_back_ios_new, ),
+      leading: GestureDetector(
+          onTap: () {
+
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back_ios_new, )),
        title: Text(
 
         title,

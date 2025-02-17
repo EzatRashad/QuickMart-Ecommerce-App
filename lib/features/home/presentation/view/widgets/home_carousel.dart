@@ -25,7 +25,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
     return CarouselSlider(
       items: images
           .map((e) => SizedBox(
-                height: 148.h,
+                height: MediaQuery.sizeOf(context).height * .22,
                 width: double.infinity,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -35,7 +35,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
                         image: AssetImage(
                           e,
                         ),
-                        height: 184.h,
+                        height:  MediaQuery.sizeOf(context).height * .22,
                         fit: BoxFit.fill,
                       ),
                       Positioned(
@@ -66,7 +66,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
           .toList(),
       options: CarouselOptions(
         viewportFraction: 1.0,
-        height: 148.h,
+        height:  MediaQuery.sizeOf(context).height * .22,
         enableInfiniteScroll: true,
         reverse: false,
         autoPlay: true,

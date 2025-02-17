@@ -11,17 +11,17 @@ class CategoryWidgetModel {
 
 List<CategoryWidgetModel> categoriesList = [
   CategoryWidgetModel(
-      title: "Electronics", image: Assets.images.person.image(height: 25.h)),
+      title: "Electronics", image: Assets.images.person.image(height: 40.h)),
   CategoryWidgetModel(
-      title: "Fashion", image: Assets.images.person.image(height: 25.h)),
+      title: "Fashion", image: Assets.images.person.image(height: 40.h)),
   CategoryWidgetModel(
-      title: "Furniture", image: Assets.images.person.image(height: 25.h)),
+      title: "Furniture", image: Assets.images.person.image(height: 40.h)),
   CategoryWidgetModel(
-      title: "Industrial", image: Assets.images.person.image(height: 25.h)),  CategoryWidgetModel(
-      title: "Home Decor", image: Assets.images.person.image(height: 25.h)),
+      title: "Industrial", image: Assets.images.person.image(height: 40.h)),  CategoryWidgetModel(
+      title: "Home Decor", image: Assets.images.person.image(height: 40.h)),
   CategoryWidgetModel(
-      title: "Electronics", image: Assets.images.person.image(height: 25.h)),
+      title: "Electronics", image: Assets.images.person.image(height: 40.h)),
   CategoryWidgetModel(
-      title: "Health", image: Assets.images.person.image(height: 25.h)),
- 
+      title: "Health", image: Assets.images.person.image(height: 40.h)),
+
 ];

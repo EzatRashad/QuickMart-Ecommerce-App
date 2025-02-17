@@ -12,7 +12,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   int selectedIndex = 0;
   List<Widget> screens = [
     HomeView(),
-
+    CategoriesView(),
     MyCartView(),
     FavView(),
   ];

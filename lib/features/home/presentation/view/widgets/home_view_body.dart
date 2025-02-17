@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/head_line.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_carousel.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/categories_list.dart';
 import 'package:quick_mart_app/core/widgets/product_grid.dart';
+
+import '../../../../categories/presentation/views/categories_view.dart';
 
 
 class HomeViewBody extends StatefulWidget {
@@ -34,7 +37,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     12.ph,
                     HomeCarousel(),
                     12.ph,
-                    HeadLine(title: "Categories", onTap: () {}),
+                    HeadLine(title: "Categories", onTap: () {
+                      context.nextScreen(const CategoriesView());
+                    }),
                     12.ph,
                     CategoriesList(),
                     12.ph,

@@ -10,7 +10,7 @@ class CategoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 68.h,
+      height:  MediaQuery.sizeOf(context).height * .13,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 4,
@@ -32,8 +32,7 @@ class CategoriesList extends StatelessWidget {
                 categoriesList[index].image ?? Container(),
                 Spacer(),
                 FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
+                   child: Text(
                       categoriesList[index].title??'',
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontSize: 10,

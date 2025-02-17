@@ -32,8 +32,8 @@ class AppColors {
       ? Color(0xffEE4D4D)
       : Color(0xffEE4D4D);
   static Color get green => AppTheme.currentTheme == ThemeMode.light
-      ? Color(0xffF4FDFA)
-      : Color(0xffF4FDFA);
+      ? Color(0xFF08E488)
+      : Color(0xFF08E488);
   static Color get blue => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xff1F88DA)
       : Color(0xff1F88DA);

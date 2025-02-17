@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: AppTheme.currentTheme,
 
-          home:   ProductDetailsView(),
+          home:   LayoutView(),
 
         );
       },
