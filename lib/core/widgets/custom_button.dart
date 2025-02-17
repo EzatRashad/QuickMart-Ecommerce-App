@@ -9,15 +9,15 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.borderRadius,
-    required this.text,
+      this.text,
     this.fontSize,
     this.height,
     this.width,
     this.textStyle,
     this.onPressed,
-    this.decoration, this.borderColor,
+    this.decoration, this.borderColor, this.child,
   });
-  final String text;
+  final String? text;
   final Color? backgroundColor;
   final Color? borderColor;
   final Color? textColor;
@@ -25,6 +25,7 @@ class CustomButton extends StatelessWidget {
   final double? fontSize;
   final double? height;
   final double? width;
+  final Widget? child;
   final TextStyle? textStyle;
   final Function()? onPressed;
   final Decoration? decoration;
@@ -44,14 +45,14 @@ class CustomButton extends StatelessWidget {
               ),
             ),
         child: Center(
-          child: Text(
-            text,
+          child: text != null ?Text(
+            text??"",
             style: textStyle ??
                 Theme.of(context)
                     .textTheme
                     .titleMedium!
                     .copyWith(color: textColor ?? AppColors.white),
-          ),
+          ):child,
         ),
       ),
     );
