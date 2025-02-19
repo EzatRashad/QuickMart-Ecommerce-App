@@ -59,7 +59,7 @@ class _CategoriesListState extends State<CategoriesList> {
   }
 
   Widget _buildCategoryItem(BuildContext context, int index) {
-    final category = homeCubit.categories![index];
+    final category = homeCubit.categories![index+3];
 
     return Padding(
       padding: EdgeInsets.only(right: 5.0.r),
