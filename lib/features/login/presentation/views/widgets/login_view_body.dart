@@ -16,7 +16,7 @@ import 'package:quick_mart_app/features/login/presentation/login_cubit/login_sta
 import 'package:quick_mart_app/features/login/presentation/views/widgets/forget_password_text.dart';
 import 'package:quick_mart_app/features/login/presentation/views/widgets/text_rich.dart';
 import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
-import '../../../../../core/api_service/api_service.dart';
+import '../../../../../core/api_service/auth_api_service.dart';
 import '../../../../../core/utils/validation.dart';
 import '../../../data/repo/login_repo_impl.dart';
 
@@ -32,7 +32,7 @@ class _LoginViewBodyState extends State<LoginViewBody>
   LoginCubit loginCubit = LoginCubit(
       loginUseCase: LoginUseCase(LoginRepoImpl(
           loginRemoteDataSource:
-              LoginRemoteDataSourceImpl(apiService: ApiService(Dio())))));
+              LoginRemoteDataSourceImpl(apiService: AuthApiService(Dio())))));
   @override
   Widget build(BuildContext context) {
     return BlocListener(

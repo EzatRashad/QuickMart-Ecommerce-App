@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart_app/features/categories/presentation/views/widgets/Categories_item.dart';
+import 'package:quick_mart_app/features/home/presentation/view/widgets/Categories_item.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/category_widget_model.dart';
 
 import '../../../../../core/widgets/common_app_bar.dart';
@@ -10,6 +10,7 @@ class CategoriesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: commonAppBar(title: "Categories", context: context),
       body: Padding(

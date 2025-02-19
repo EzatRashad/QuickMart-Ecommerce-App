@@ -43,6 +43,9 @@ dependencies:
   shared_preferences: null
   smooth_page_indicator: ^1.2.0+3
   readmore: null
+  dartz: null
+  cached_network_image: null
+  shimmer: null
 
 dev_dependencies:
   build_runner: null

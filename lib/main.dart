@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_theme.dart';
 import 'package:quick_mart_app/features/home/presentation/view/product_details_view.dart';
 import 'package:quick_mart_app/features/layout/presentation/view/layout_view.dart';
 import 'package:quick_mart_app/features/onboarding/presentation/views/onboarding_view.dart';
 
+import 'core/utils/bloc_observar.dart';
 import 'features/home/presentation/view/home_view.dart';
 
 
 void main(){
   //  await CasheHelper.init();
-
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 

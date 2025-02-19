@@ -16,8 +16,8 @@ class LoginResponse {
   }
 
   String? message;
-   UserModel? user;
-  String? statusMsg;
 
+  String? statusMsg;
+  UserModel? user;
   String? token;
 }

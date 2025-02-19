@@ -30,7 +30,7 @@ class _ProductDetailsAppBarState extends State<ProductDetailsAppBar> {
             )),
         20.pw
       ],
-      expandedHeight: 280.h,
+      expandedHeight: MediaQuery.sizeOf(context).height*0.4,
       elevation: 0,
       pinned: true,
       backgroundColor: AppColors.white,
@@ -65,7 +65,7 @@ class _ProductDetailsAppBarState extends State<ProductDetailsAppBar> {
           children: [
             Assets.images.product.image(
               fit: BoxFit.fill,
-              height: 295.h,
+              height: MediaQuery.sizeOf(context).height*0.46,
             ),
           ],
         ),

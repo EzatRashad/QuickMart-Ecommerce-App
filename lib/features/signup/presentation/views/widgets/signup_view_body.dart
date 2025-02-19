@@ -16,7 +16,7 @@ import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_
 import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_states.dart';
 
 import '../../../../../core/utils/validation.dart';
-import '../../../../../core/api_service/api_service.dart';
+import '../../../../../core/api_service/auth_api_service.dart';
 import '../../../../login/presentation/views/login_view.dart';
 
 class SignupViewBody extends StatefulWidget {
@@ -31,7 +31,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
     signupUseCase: SignupUseCase(
       signupRepo: SignupRepoImpl(
         signupRemoteDataSource: SignupRemoteDataSourceImpl(
-          ApiService(
+          AuthApiService(
             Dio(),
           ),
         ),
