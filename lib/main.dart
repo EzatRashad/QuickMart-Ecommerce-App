@@ -6,8 +6,7 @@ import 'package:quick_mart_app/features/layout/presentation/view/layout_view.dar
 
 import 'core/utils/bloc_observar.dart';
 
-
-void main(){
+void main() {
   //  await CasheHelper.init();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
@@ -16,10 +15,8 @@ void main(){
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
@@ -30,9 +27,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: AppTheme.currentTheme,
-
-          home:   LayoutView(),
-
+          home: LayoutView(),
         );
       },
     );
