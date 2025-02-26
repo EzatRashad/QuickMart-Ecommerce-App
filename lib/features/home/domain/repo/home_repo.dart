@@ -6,4 +6,6 @@ import 'package:quick_mart_app/features/home/domain/entities/category_entity.dar
 
 abstract class HomeRepo {
   Future<Either<Failure, CategoryResponseEntity>> getCategories();
+  Future<Either<Failure, CategoryResponseEntity>> getBrands();
+
 }

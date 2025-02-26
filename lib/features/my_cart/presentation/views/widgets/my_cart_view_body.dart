@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart_app/features/my_cart/presentation/my_cart_cubit/cart_item.dart';
 
-import '../../../../../core/widgets/common_app_bar.dart';
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
 

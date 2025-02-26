@@ -22,6 +22,19 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, CategoryResponseEntity>> getBrands()async {
+    try {
+      var response = await homeApiService.getBrands();
+      return response.fold(
+            (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+            (r) => Right(r),
+      );
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
 }
 
 
@@ -30,6 +43,12 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
   Future<Either<Failure, CategoryResponseEntity>> getCategories() {
     // TODO: implement getCategories
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, CategoryResponseEntity>> getBrands() {
+    // TODO: implement getBrands
     throw UnimplementedError();
   }
 }

@@ -25,7 +25,7 @@ class CategoriesViewBody extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             return CategoriesItem(
-              image:index==2?"https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2": categoriesList[index].image ?? '',
+              image: categoriesList[index].image ?? '',
               name: categoriesList[index].name ?? '',
             );
           },

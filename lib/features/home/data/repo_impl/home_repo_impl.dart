@@ -4,7 +4,6 @@ import 'package:quick_mart_app/features/home/domain/data_source/home_data_source
 import 'package:quick_mart_app/features/home/domain/entities/category_entity.dart';
 
 import '../../domain/repo/home_repo.dart';
-import '../models/category_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   HomeRemoteDataSource homeRemoteDataSource;
@@ -15,5 +14,10 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, CategoryResponseEntity>> getCategories() {
     return homeRemoteDataSource.getCategories();
+  }
+
+  @override
+  Future<Either<Failure, CategoryResponseEntity>> getBrands() {
+    return homeRemoteDataSource.getBrands();
   }
 }

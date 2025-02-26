@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import '../../../data/models/category_model.dart';
 
 class CategoriesItem extends StatelessWidget {
   const CategoriesItem({super.key, required this.image, required this.name, });

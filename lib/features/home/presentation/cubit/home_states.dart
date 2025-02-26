@@ -1,25 +1,19 @@
-
 import 'package:quick_mart_app/features/home/domain/entities/category_entity.dart';
 
-import '../../data/models/category_model.dart';
+class CategoriesState {}
 
+class CategoriesInitialState extends CategoriesState {}
 
-
-class HomeState {}
-
-class HomeInitialState extends HomeState {}
-
-
-class GetCategoriesSuccessState extends HomeState {
+class GetCategoriesSuccessState extends CategoriesState {
   CategoryResponseEntity categories;
 
-   GetCategoriesSuccessState(this.categories);
+  GetCategoriesSuccessState(this.categories);
 }
 
-class GetCategoriesSErrorState extends HomeState {
+class GetCategoriesSErrorState extends CategoriesState {
   final String message;
 
   GetCategoriesSErrorState(this.message);
 }
 
-class GetCategoriesLoadingState extends HomeState {}
+class GetCategoriesLoadingState extends CategoriesState {}

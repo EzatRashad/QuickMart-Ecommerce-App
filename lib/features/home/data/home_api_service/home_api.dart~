@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:quick_mart_app/features/home/data/models/BrandsResponseModel.dart';
 
 import '../../../../core/api_service/api_constants.dart';
 import '../../../../core/failure/failure.dart';
@@ -26,12 +27,12 @@ class HomeApiService {
       return Left(NetworkFailure(errorMessage: exception.toString()));
     }
   }
-  Future<Either<Failure, CategoryResponseModel>> getBrands() async {
+  Future<Either<Failure, BrandsResponseModel>> getBrands() async {
     try {
       final response = await _dio
           .get('${ApiConstants.baseUrl}${ApiConstants.brandsEndPoint}');
       final json = await response.data;
-      var brandsResponseModel = CategoryResponseModel.fromJson(json);
+      var brandsResponseModel = BrandsResponseModel().fromJson(json);
       return Right(brandsResponseModel);
     } catch  (exception) {
       String? message;

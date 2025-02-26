@@ -9,8 +9,6 @@ import 'package:quick_mart_app/features/home/data/data_source/home_data_source_i
 import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart';
 import 'package:quick_mart_app/features/home/data/repo_impl/home_repo_impl.dart';
 import 'package:quick_mart_app/features/home/domain/use_case/get_categories_use_case.dart';
-import 'package:quick_mart_app/features/home/presentation/view/widgets/shimmer_head_line.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../cubit/home_cubit.dart';
 import '../../cubit/home_states.dart';
@@ -28,15 +26,19 @@ class CategoriesList extends StatefulWidget {
 }
 
 class _CategoriesListState extends State<CategoriesList> {
-  HomeCubit homeCubit = HomeCubit(GetAllCategoriesUseCase(HomeRepoImpl(
-      homeRemoteDataSource: HomeRemoteDataSourceImpl(
-    homeApiService: HomeApiService(Dio()),
-  ))));
+  HomeCubit homeCubit = HomeCubit(
+      GetAllCategoriesUseCase(HomeRepoImpl(
+          homeRemoteDataSource: HomeRemoteDataSourceImpl(
+        homeApiService: HomeApiService(Dio()),
+      ))),
+     );
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-        bloc: homeCubit..getCategories(),
+    return BlocConsumer<HomeCubit, CategoriesState>(
+        bloc: homeCubit
+          ..getCategories(),
+
         listener: (context, state) {},
         builder: (context, state) {
           if (state is GetCategoriesSuccessState) {
@@ -46,7 +48,7 @@ class _CategoriesListState extends State<CategoriesList> {
                     title: "Categories",
                     onTap: () {
                       context.nextScreen(CategoriesViewBody(
-                        categoriesList: homeCubit.categories ?? [],
+                        categoriesList: homeCubit.categoriesList ?? [],
                       ));
                     }),
                 12.ph,
@@ -59,6 +61,7 @@ class _CategoriesListState extends State<CategoriesList> {
                         buildCategoryItem(context, index),
                   ),
                 ),
+
               ],
             );
           } else if (state is GetCategoriesSErrorState) {
@@ -68,14 +71,13 @@ class _CategoriesListState extends State<CategoriesList> {
           } else {
             return Center(
               child: CategoriesLoading(),
-
             );
           }
         });
   }
 
   Widget buildCategoryItem(BuildContext context, int index) {
-    final category = homeCubit.categories![index + 3];
+    final category = homeCubit.categoriesList![index + 3];
 
     return Padding(
       padding: EdgeInsets.only(right: 5.0.r),
@@ -83,7 +85,6 @@ class _CategoriesListState extends State<CategoriesList> {
         color: AppColors.white,
         elevation: 2,
         child: Container(
-
           width: 80.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
@@ -94,7 +95,7 @@ class _CategoriesListState extends State<CategoriesList> {
             children: [
               category.image != null
                   ? Expanded(
-                flex: 3,
+                      flex: 3,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.r),
                         child: Image.network(
@@ -124,5 +125,3 @@ class _CategoriesListState extends State<CategoriesList> {
     );
   }
 }
-
-

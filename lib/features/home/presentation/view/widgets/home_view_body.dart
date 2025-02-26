@@ -7,6 +7,8 @@ import 'package:quick_mart_app/features/home/presentation/view/widgets/head_line
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_carousel.dart';
 
+import 'brands_list.dart';
+
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
@@ -29,11 +31,14 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    12.ph,
+
                     HomeCarousel(),
                     12.ph,
 
                     CategoriesList(),
+                    12.ph,
+
+                    BrandsList(),
                     12.ph,
                     HeadLine(title: "Latest Products", onTap: () {}),
                     12.ph
