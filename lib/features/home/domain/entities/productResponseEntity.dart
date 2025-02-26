@@ -25,7 +25,7 @@ class ProductEntity {
   });
 
   List<String>? images;
-  List<Subcategory>? subcategory;
+  List<ProductSubcategoryEntity>? subcategory;
   num? ratingsQuantity;
   String? id;
   String? title;
@@ -34,57 +34,43 @@ class ProductEntity {
   num? quantity;
   num? price;
 
-  Category? category;
-  Brand? brand;
+  ProductCategoryEntity? category;
+  ProductBrandEntity? brand;
   num? ratingsAverage;
 }
 
-class Brand {
-  Brand({
+class ProductBrandEntity {
+  ProductBrandEntity({
     this.id,
     this.name,
-    this.slug,
-    this.image,
   });
-
 
   String? id;
   String? name;
-  String? slug;
-  String? image;
-
 }
 
-class Category {
-  Category({
+class ProductCategoryEntity {
+  ProductCategoryEntity({
     this.id,
     this.name,
-    this.slug,
-    this.image,
+
   });
-
-
 
   String? id;
   String? name;
-  String? slug;
-  String? image;
 
 }
 
-class Subcategory {
-  Subcategory({
+class ProductSubcategoryEntity {
+  ProductSubcategoryEntity({
     this.id,
     this.name,
-    this.slug,
+
     this.category,
   });
 
-
   String? id;
   String? name;
-  String? slug;
+
   String? category;
-
 }
-

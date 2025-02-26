@@ -1,6 +1,6 @@
 import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
 
-class ProductResponseModel extends ProductResponseEntity {
+class ProductResponseModel extends ProductResponseEntity{
   ProductResponseModel({
     super.results,
     this.metadata,
@@ -19,25 +19,27 @@ class ProductResponseModel extends ProductResponseEntity {
     }
   }
 
+
   Metadata? metadata;
+
 }
 
 class Product extends ProductEntity {
   Product({
     this.sold,
-    super.images,
-    super.subcategory,
-    super.ratingsQuantity,
-    super.id,
-    super.title,
-    super.slug,
-    super.description,
-    super.quantity,
-    super.price,
+    this.images,
+    this.subcategory,
+    this.ratingsQuantity,
+    this.id,
+    this.title,
+    this.slug,
+    this.description,
+    this.quantity,
+    this.price,
     this.imageCover,
-    super.category,
-    super.brand,
-    super.ratingsAverage,
+    this.category,
+    this.brand,
+    this.ratingsAverage,
     this.createdAt,
     this.updatedAt,
   });
@@ -68,15 +70,27 @@ class Product extends ProductEntity {
   }
 
   num? sold;
+  List<String>? images;
+  List<Subcategory>? subcategory;
+  num? ratingsQuantity;
+  String? id;
+  String? title;
+  String? slug;
+  String? description;
+  num? quantity;
+  num? price;
   String? imageCover;
+  Category? category;
+  Brand? brand;
+  num? ratingsAverage;
   String? createdAt;
   String? updatedAt;
 }
 
 class Brand extends ProductBrandEntity {
   Brand({
-    super.id,
-    super.name,
+    this.id,
+    this.name,
     this.slug,
     this.image,
   });
@@ -88,14 +102,17 @@ class Brand extends ProductBrandEntity {
     image = json['image'];
   }
 
+  String? id;
+  String? name;
   String? slug;
   String? image;
+
 }
 
 class Category extends ProductCategoryEntity {
   Category({
-    super.id,
-    super.name,
+    this.id,
+    this.name,
     this.slug,
     this.image,
   });
@@ -107,16 +124,18 @@ class Category extends ProductCategoryEntity {
     image = json['image'];
   }
 
+  String? id;
+  String? name;
   String? slug;
   String? image;
 }
 
 class Subcategory extends ProductSubcategoryEntity {
   Subcategory({
-    super.id,
-    super.name,
+    this.id,
+    this.name,
     this.slug,
-    super.category,
+    this.category,
   });
 
   Subcategory.fromJson(dynamic json) {
@@ -126,7 +145,10 @@ class Subcategory extends ProductSubcategoryEntity {
     category = json['category'];
   }
 
+  String? id;
+  String? name;
   String? slug;
+  String? category;
 }
 
 class Metadata {

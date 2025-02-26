@@ -3,10 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/navigate.dart';
+import 'package:quick_mart_app/features/home/data/models/ProductResponseModel.dart';
+import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
 import 'package:quick_mart_app/features/home/presentation/view/product_details_view.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  const ProductItem({super.key, required this.product});
+  final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class ProductItem extends StatelessWidget {
                   color: AppColors.grey50,
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                      product.images?.first ?? '',),
                     fit: BoxFit.fill,
                   ),
                   shape: RoundedRectangleBorder(
@@ -58,7 +61,7 @@ class ProductItem extends StatelessWidget {
             Padding(
               padding:   EdgeInsets.symmetric(horizontal: 2.0.w),
               child: Column(children: [Text(
-                'Classic new black glasses for men and women',
+                product.title ?? '',
 
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -70,23 +73,14 @@ class ProductItem extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: Text(
-                    '\$8.50',
+                    '\$${ product.price ?? ''}',
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium!
                         .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w600),
                   ),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    '\$10.00',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      decoration: TextDecoration.lineThrough,
-                      fontSize: 10.sp,
-                    ),
-                  ),
-                ),],),
+               ],),
             )
           ]),
     ),);

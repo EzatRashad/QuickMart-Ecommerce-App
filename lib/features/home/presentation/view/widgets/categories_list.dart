@@ -10,8 +10,9 @@ import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart
 import 'package:quick_mart_app/features/home/data/repo_impl/home_repo_impl.dart';
 import 'package:quick_mart_app/features/home/domain/use_case/get_categories_use_case.dart';
 
-import '../../cubit/home_cubit.dart';
-import '../../cubit/home_states.dart';
+import '../../catigories_cubit/catigories_cubit.dart';
+
+import '../../catigories_cubit/catigories_states.dart';
 import 'categories_loading.dart';
 import 'categories_view_body.dart';
 import 'head_line.dart';
@@ -26,7 +27,7 @@ class CategoriesList extends StatefulWidget {
 }
 
 class _CategoriesListState extends State<CategoriesList> {
-  HomeCubit homeCubit = HomeCubit(
+  CategoriesCubit homeCubit = CategoriesCubit(
       GetAllCategoriesUseCase(HomeRepoImpl(
           homeRemoteDataSource: HomeRemoteDataSourceImpl(
         homeApiService: HomeApiService(Dio()),
@@ -35,7 +36,7 @@ class _CategoriesListState extends State<CategoriesList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, CategoriesState>(
+    return BlocConsumer<CategoriesCubit, CategoriesState>(
         bloc: homeCubit
           ..getCategories(),
 

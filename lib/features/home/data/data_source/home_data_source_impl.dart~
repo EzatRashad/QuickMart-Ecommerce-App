@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart';
-import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
 
 import '../../../../core/failure/failure.dart';
 import '../../domain/data_source/home_data_source.dart';
@@ -16,8 +15,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     try {
       var response = await homeApiService.getCategories();
       return response.fold(
-        (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
-        (r) => Right(r),
+            (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+            (r) => Right(r),
       );
     } catch (e) {
       return Left(ServerFailure(errorMessage: e.toString()));
@@ -25,31 +24,20 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }
 
   @override
-  Future<Either<Failure, CategoryResponseEntity>> getBrands() async {
+  Future<Either<Failure, CategoryResponseEntity>> getBrands()async {
     try {
       var response = await homeApiService.getBrands();
       return response.fold(
-        (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
-        (r) => Right(r),
-      );
-    } catch (e) {
-      return Left(ServerFailure(errorMessage: e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, ProductResponseEntity>> getProducts() async {
-    try {
-      var response = await homeApiService.getProducts();
-      return response.fold(
-        (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
-        (r) => Right(r),
+            (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+            (r) => Right(r),
       );
     } catch (e) {
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
 }
+
+
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
@@ -61,12 +49,6 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
   Future<Either<Failure, CategoryResponseEntity>> getBrands() {
     // TODO: implement getBrands
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<Failure, ProductResponseEntity>> getProducts() {
-    // TODO: implement getProducts
     throw UnimplementedError();
   }
 }
