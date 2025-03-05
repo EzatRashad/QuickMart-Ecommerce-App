@@ -5,13 +5,14 @@ import 'package:readmore/readmore.dart';
 import '../../../../../core/utils/app_color.dart';
 
 class ProductDetailsDescription extends StatelessWidget {
-  const ProductDetailsDescription({super.key});
+  const ProductDetailsDescription({super.key, required this.desc});
+  final String desc;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: ReadMoreText(
-        'Constructed with high-quality silicone material, the Loop Silicone Strong Magnetic Watch ensures a comfortable and secure fit on your wrist. The soft and flexible silicone is gentle on the skin, making it ideal for...',
+        desc,
         trimMode: TrimMode.Line,
         style: TextStyle(
           color: Color(0xFF6F7384),

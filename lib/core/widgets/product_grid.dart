@@ -10,6 +10,8 @@ import 'package:quick_mart_app/features/home/data/repo_impl/home_repo_impl.dart'
 import '../../features/home/domain/use_case/get_products_use_case.dart';
 import '../../features/home/presentation/products_cubit/products_cubit.dart';
 import '../../features/home/presentation/products_cubit/products_states.dart';
+import '../../features/home/presentation/view/widgets/shimmer_head_line.dart';
+import '../../features/home/presentation/view/widgets/shimmer_products.dart';
 
 class ProductGrid extends StatefulWidget {
   const ProductGrid({super.key});
@@ -46,27 +48,26 @@ class _ProductGridState extends State<ProductGrid> {
               childAspectRatio: 2 / 3,
             ),
             delegate: SliverChildBuilderDelegate(
-                  (context, index) => ProductItem(
+              (context, index) => ProductItem(
                 product: state.products.data![index],
               ),
               childCount: state.products.data!.length, // Make it dynamic
             ),
           );
         } else if (state is ProductsSErrorState) {
-          return SliverToBoxAdapter( // Wrap with SliverToBoxAdapter
+          return SliverToBoxAdapter(
+            // Wrap with SliverToBoxAdapter
             child: Center(
               child: Text(state.message),
             ),
           );
         } else {
-          return SliverToBoxAdapter( // Wrap with SliverToBoxAdapter
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
+          return SliverToBoxAdapter(
+            // Wrap with SliverToBoxAdapter
+            child:  Center(child: CircularProgressIndicator(),)
           );
         }
       },
     );
   }
-
 }

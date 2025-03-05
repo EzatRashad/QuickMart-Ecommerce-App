@@ -32,7 +32,7 @@ class ProductEntity {
   String? slug;
   String? description;
   num? quantity;
-  num? price;
+  int? price;
 
   ProductCategoryEntity? category;
   ProductBrandEntity? brand;

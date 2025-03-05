@@ -37,9 +37,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
                     CategoriesList(),
                     12.ph,
-
-                    BrandsList(),
-                    12.ph,
+                    // BrandsList(),
+                    // 12.ph,
                     HeadLine(title: "Latest Products", onTap: () {}),
                     12.ph
                   ],

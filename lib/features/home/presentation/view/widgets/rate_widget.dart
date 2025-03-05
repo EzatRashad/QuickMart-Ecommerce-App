@@ -3,14 +3,16 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 class RateWidget extends StatelessWidget {
-  const RateWidget({super.key});
+  const RateWidget({super.key, required this.ratingsAverage, required this.ratingsQuantity});
+  final num ratingsAverage;
+  final num ratingsQuantity;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          "3.5 (2,495 reviews) ",
+          "$ratingsAverage ($ratingsQuantity reviews) ",
           style: Theme.of(context).textTheme.titleSmall,
         ),
         Spacer(),
