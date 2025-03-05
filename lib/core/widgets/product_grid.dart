@@ -64,7 +64,18 @@ class _ProductGridState extends State<ProductGrid> {
         } else {
           return SliverToBoxAdapter(
             // Wrap with SliverToBoxAdapter
-            child:  Center(child: CircularProgressIndicator(),)
+            child: Column(
+              children: [
+                const ShimmerHeadLine(),
+                SizedBox(
+                  height: 200,
+                  child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2),
+                      itemBuilder: (context, index) => ShimmerProductItem()),
+                )
+              ],
+            ),
           );
         }
       },
