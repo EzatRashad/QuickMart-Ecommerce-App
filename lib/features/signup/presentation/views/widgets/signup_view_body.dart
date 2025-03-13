@@ -9,6 +9,7 @@ import 'package:quick_mart_app/core/widgets/app_icon.dart';
 import 'package:quick_mart_app/core/widgets/auth_title.dart';
 import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/custom_text_form_filed.dart';
+import 'package:quick_mart_app/features/layout/presentation/view/layout_view.dart';
 import 'package:quick_mart_app/features/signup/data/data_source/signup_remote_data_source/signup_remote_data_source_impl.dart';
 import 'package:quick_mart_app/features/signup/data/repos/signup_repo_impl.dart';
 import 'package:quick_mart_app/features/signup/domain/use_case/signup_use_case.dart';
@@ -63,6 +64,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content:
                   Text(state.registerResponse.message ?? "Success.......")));
+                                context.nextScreen(LayoutView());
+
+
         }
       },
       child: Scaffold(

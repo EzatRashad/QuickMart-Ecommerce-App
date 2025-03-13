@@ -26,19 +26,15 @@ class BrandsList extends StatefulWidget {
 }
 
 class _BrandsListState extends State<BrandsList> {
-  BrandsCubit brandsCubit = BrandsCubit(
-      GetBrandsUseCase(HomeRepoImpl(
-          homeRemoteDataSource: HomeRemoteDataSourceImpl(
-            homeApiService: HomeApiService(Dio()),
-          )))
-  );
+  BrandsCubit brandsCubit = BrandsCubit(GetBrandsUseCase(HomeRepoImpl(
+      homeRemoteDataSource: HomeRemoteDataSourceImpl(
+    homeApiService: HomeApiService(Dio()),
+  ))));
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<BrandsCubit, BrandsStates>(
-        bloc: brandsCubit
-          ..getBrands(),
-
+        bloc: brandsCubit..getBrands(),
         listener: (context, state) {},
         builder: (context, state) {
           if (state is GetBrandsSuccessState) {
@@ -61,7 +57,6 @@ class _BrandsListState extends State<BrandsList> {
                         buildCategoryItem(context, index),
                   ),
                 ),
-
               ],
             );
           } else if (state is GetBrandsSErrorState) {
@@ -95,18 +90,18 @@ class _BrandsListState extends State<BrandsList> {
             children: [
               category.image != null
                   ? Expanded(
-                flex: 3,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12.r),
-                  child: Image.network(
-                    category.image!,
-                    width: double.infinity,
-                    fit: BoxFit.fill,
-                    errorBuilder: (context, error, stackTrace) =>
-                        Icon(Icons.error, color: AppColors.red),
-                  ),
-                ),
-              )
+                      flex: 3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12.r),
+                        child: Image.network(
+                          category.image!,
+                          width: double.infinity,
+                          fit: BoxFit.fill,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Icon(Icons.error, color: AppColors.red),
+                        ),
+                      ),
+                    )
                   : Icon(Icons.image, size: 30.sp),
               SizedBox(height: 5.h),
               FittedBox(

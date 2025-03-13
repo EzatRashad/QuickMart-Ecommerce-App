@@ -45,7 +45,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             BottomNavigationBarItem(
                 icon: Assets.images.cartIcon.image(
                   height: 20.h,
-                  color: widget.homeCubit.selectedIndex == 2
+                  color: widget.homeCubit.selectedIndex == 1
                       ? AppColors.cyan
                       : AppColors.grey150,
                 ),
@@ -53,7 +53,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             BottomNavigationBarItem(
                 icon: Assets.images.favIcon.image(
                   height: 20.h,
-                  color: widget.homeCubit.selectedIndex == 3
+                  color: widget.homeCubit.selectedIndex == 2
                       ? AppColors.cyan
                       : AppColors.grey150,
                 ),

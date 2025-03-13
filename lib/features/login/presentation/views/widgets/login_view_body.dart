@@ -18,6 +18,7 @@ import 'package:quick_mart_app/features/login/presentation/views/widgets/text_ri
 import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
 import '../../../../../core/api_service/auth_api_service.dart';
 import '../../../../../core/utils/validation.dart';
+import '../../../../layout/presentation/view/layout_view.dart';
 import '../../../data/repo/login_repo_impl.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -57,6 +58,7 @@ class _LoginViewBodyState extends State<LoginViewBody>
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content:
                       Text(state.loginResponse!.message ?? "Success.......")));
+              context.nextScreen(LayoutView());
             }
           }
         },
