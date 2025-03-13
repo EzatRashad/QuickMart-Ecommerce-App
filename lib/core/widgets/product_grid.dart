@@ -68,10 +68,13 @@ class _ProductGridState extends State<ProductGrid> {
               children: [
                 const ShimmerHeadLine(),
                 SizedBox(
-                  height: 200,
+                  height: 350,
                   child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
+                          crossAxisCount: 2,
+                        crossAxisSpacing: 8.w,
+                        mainAxisSpacing: 10.h,
+                        childAspectRatio: 2 / 3,),
                       itemBuilder: (context, index) => ShimmerProductItem()),
                 )
               ],
