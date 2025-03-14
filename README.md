@@ -39,9 +39,11 @@ QuickMart is a modern, high-performance e-commerce application built with **Flut
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/25e65cfc-c0a3-4e29-85ba-d04797ac2b77" width="200">
-  <img src="https://github.com/user-attachments/assets/16d38bef-25f1-40e1-899d-093c84587c42" width="200">
+  <img src="https://github.com/user-attachments/assets/81ea0cb6-aa93-46c6-b7a5-b9ec70dc378f" width="200">
+  <img src="https://github.com/user-attachments/assets/f97da400-e96e-454b-8633-53b3508b69af" width="200">
 </p>
+
+
 
 ---
 
