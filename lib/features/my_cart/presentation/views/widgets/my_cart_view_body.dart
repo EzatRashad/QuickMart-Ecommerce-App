@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/custom_button.dart';
-import 'package:quick_mart_app/features/my_cart/presentation/my_cart_cubit/cart_item.dart';
+import 'package:quick_mart_app/core/widgets/empty_and_wish_product.dart';
 import 'package:quick_mart_app/features/my_cart/presentation/views/widgets/empty_cart.dart';
 import 'package:quick_mart_app/features/my_cart/presentation/views/widgets/order_details.dart';
 
@@ -37,7 +36,9 @@ class MyCartViewBody extends StatelessWidget {
                               physics: NeverScrollableScrollPhysics(),
                               itemCount: 2,
                               itemBuilder: (context, index) {
-                                return CartItem();
+                                return EmptyAndWishProduct(
+                                  isCart: true,
+                                );
                               },
                               separatorBuilder: (context, index) => 5.ph,
                             ),

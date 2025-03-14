@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 import '../../../../core/utils/assets.gen.dart';
 
-class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+class EmptyAndWishProduct extends StatelessWidget {
+  const EmptyAndWishProduct({super.key, this.isCart = false});
+  final bool isCart;
 
   @override
   Widget build(BuildContext context) {
@@ -53,39 +55,49 @@ class CartItem extends StatelessWidget {
                       ),
                 ),
                 Spacer(),
-                Row(
-                  children: [
-                    Container(
-                      width: 96.w,
-                      height: 28.h,
-                      padding: const EdgeInsets.all(4),
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: AppColors.grey50),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                isCart
+                    ? Row(
                         children: [
-                          GestureDetector(child: Icon(Icons.add, size: 18.sp)),
-                          Text("1"),
+                          Container(
+                            width: 96.w,
+                            height: 28.h,
+                            padding: const EdgeInsets.all(4),
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                    width: 1, color: AppColors.grey50),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                GestureDetector(
+                                    child: Icon(Icons.add, size: 18.sp)),
+                                Text("1"),
+                                GestureDetector(
+                                    child: Icon(Icons.minimize, size: 18.sp)),
+                              ],
+                            ),
+                          ),
+                          Spacer(),
                           GestureDetector(
-                              child: Icon(Icons.minimize, size: 18.sp)),
+                            child: SvgPicture.asset('assets/images/trash.svg',
+                                height: 22.h),
+                          ),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            child: SvgPicture.asset('assets/images/trash.svg',
+                                height: 22.h),
+                          ),
+                          5.pw,
                         ],
                       ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      child: Icon(
-                        Icons.delete,
-                        size: 25.sp,
-                        color: AppColors.red,
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           ),
