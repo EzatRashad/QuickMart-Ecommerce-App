@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/empty_and_wish_product.dart';
 import 'package:quick_mart_app/core/widgets/empty_widget.dart';
-import 'package:quick_mart_app/features/my_cart/presentation/views/widgets/order_details.dart';
 
-class MyCartViewBody extends StatelessWidget {
-  const MyCartViewBody({super.key});
-
+class WishListViewBody extends StatelessWidget {
+  const WishListViewBody({super.key});
+ 
   @override
   Widget build(BuildContext context) {
-    int count = 2;
+    int count = 0;
 
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
         title: Text(
-          "My Cart",
+          "Wishlist",
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
       body: count == 0
-          ? EmptyWidget(
-              image: 'assets/images/empty1.png',
-              description:
-                  "Looks like you have not added anything in your cart. Go ahead and explore top categories.",
-              message: 'Your Cart is empty')
+          ? EmptyWidget(image: 'assets/images/empty2.png',description: "Tap heart button to start saving your favorite items." , message: 'Your wishlist is empty')
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
@@ -41,25 +35,18 @@ class MyCartViewBody extends StatelessWidget {
                               itemCount: 2,
                               itemBuilder: (context, index) {
                                 return EmptyAndWishProduct(
-                                  isCart: true,
+                                  
                                 );
                               },
                               separatorBuilder: (context, index) => 5.ph,
                             ),
-                            5.ph,
-                            OrderDetail(),
+                          
                           ]),
                         ),
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                    child: CustomButton(
-                      text: "Checkout",
-                      onPressed: () {},
-                    ),
-                  ),
+                  
                 ],
               ),
             ),

@@ -20,7 +20,7 @@ class OrderDetail extends StatelessWidget {
         ),
         DetailsRow(
           title: 'Subtotal',
-          value: '\$27.25',
+          value: '\$30.5',
         ),
         DetailsRow(
           title: 'Shipping Cost',
@@ -28,7 +28,7 @@ class OrderDetail extends StatelessWidget {
         ),
         DetailsRow(
           title: 'Total',
-          value: '\$27.25',
+          value: '\$30.5',
         ),
       ],
     );

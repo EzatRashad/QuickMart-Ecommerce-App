@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
-class EmptyCart extends StatelessWidget {
-  const EmptyCart({super.key});
+class EmptyWidget extends StatelessWidget {
+  const EmptyWidget({super.key, required this.message, required this.description, required this.image});
+  final String message;
+  final String description;
+  final String image;
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +18,18 @@ class EmptyCart extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(
-            "assets/images/empty1.png",
+            image,
             height: 240.h,
             width: 240.w,
           ),
           Text(
-            "Your cart is empty",
+            message,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           16.ph,
           Text(
-            "Looks like you have not added anything in your cart. Go ahead and explore top categories.",
+            description,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleSmall,
           ),

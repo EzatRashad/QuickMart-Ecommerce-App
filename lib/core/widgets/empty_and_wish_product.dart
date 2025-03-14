@@ -49,7 +49,7 @@ class EmptyAndWishProduct extends StatelessWidget {
                           fontSize: 12,
                         )),
                 Text(
-                  '\$15.25',
+                  '\$20.25',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         decoration: TextDecoration.lineThrough,
                       ),
