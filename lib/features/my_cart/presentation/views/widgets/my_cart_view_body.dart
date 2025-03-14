@@ -7,10 +7,10 @@ import 'package:quick_mart_app/features/my_cart/presentation/views/widgets/order
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
-
+ 
   @override
   Widget build(BuildContext context) {
-    int count = 1;
+    int count = 2;
 
     return Scaffold(
       appBar: AppBar(
