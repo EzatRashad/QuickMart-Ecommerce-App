@@ -1,18 +1,12 @@
-/// status : "success"
-/// message : "Product added successfully to your cart"
-/// numOfCartItems : 1
-/// cartId : "67f2606e407a95607a8657b3"
-/// data : {"_id":"67f2606e407a95607a8657b3","cartOwner":"67d2cf3affa203990fb42659","products":[{"count":2,"_id":"67f2606e407a95607a8657b4","product":"6428eb43dc1175abc65ca0b3","price":149}],"createdAt":"2025-04-06T11:07:26.434Z","updatedAt":"2025-04-06T11:07:30.668Z","__v":0,"totalCartPrice":298}
-
-class CartModel {
-  CartModel({
+class CartModelResponse {
+  CartModelResponse({
       this.status, 
       this.message, 
       this.numOfCartItems, 
       this.cartId, 
       this.data,});
 
-  CartModel.fromJson(dynamic json) {
+  CartModelResponse.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
     numOfCartItems = json['numOfCartItems'];

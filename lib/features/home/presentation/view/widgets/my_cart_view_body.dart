@@ -3,7 +3,7 @@ import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/empty_and_wish_product.dart';
 import 'package:quick_mart_app/core/widgets/empty_widget.dart';
-import 'package:quick_mart_app/features/my_cart/presentation/views/widgets/order_details.dart';
+import 'package:quick_mart_app/features/home/presentation/view/widgets/order_details.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
