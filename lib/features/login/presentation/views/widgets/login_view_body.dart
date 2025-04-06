@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quick_mart_app/core/utils/constants.dart';
 import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/app_icon.dart';
@@ -17,6 +18,7 @@ import 'package:quick_mart_app/features/login/presentation/views/widgets/forget_
 import 'package:quick_mart_app/features/login/presentation/views/widgets/text_rich.dart';
 import 'package:quick_mart_app/features/signup/presentation/views/signup_view.dart';
 import '../../../../../core/api_service/auth_api_service.dart';
+import '../../../../../core/functions/cashe_helper.dart';
 import '../../../../../core/utils/validation.dart';
 import '../../../../layout/presentation/view/layout_view.dart';
 import '../../../data/repo/login_repo_impl.dart';
@@ -37,7 +39,7 @@ class _LoginViewBodyState extends State<LoginViewBody>
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-        listener: (context, state) {
+        listener: (context, state) async {
           {
             if (state is LoginLoadingState) {
               showDialog(
@@ -58,6 +60,10 @@ class _LoginViewBodyState extends State<LoginViewBody>
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content:
                       Text(state.loginResponse!.message ?? "Success.......")));
+              await CasheHelper.saveData(key: isLoggedInK, value: true);
+              await CasheHelper.saveData(
+                  key: tokenK, value: state.loginResponse?.token);
+              print(state.loginResponse?.token);
               context.nextScreen(LayoutView());
             }
           }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quick_mart_app/core/functions/cashe_helper.dart';
 import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/app_icon.dart';
@@ -16,6 +17,7 @@ import 'package:quick_mart_app/features/signup/domain/use_case/signup_use_case.d
 import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_cubit.dart';
 import 'package:quick_mart_app/features/signup/presentation/signup_cubit/signup_states.dart';
 
+import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/validation.dart';
 import '../../../../../core/api_service/auth_api_service.dart';
 import '../../../../login/presentation/views/login_view.dart';
@@ -44,7 +46,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   Widget build(BuildContext context) {
     return BlocListener<SignupCubit, SignupStates>(
       bloc: signupCubit,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is SignupLoadingState) {
           showDialog(
             context: context,
@@ -64,6 +66,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content:
                   Text(state.registerResponse.message ?? "Success.......")));
+                  await CasheHelper.saveData(key: isLoggedInK, value: true);
+                  await CasheHelper.saveData(key: tokenK, value: state.registerResponse.token);
+
                                 context.nextScreen(LayoutView());
 
 
