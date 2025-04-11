@@ -27,7 +27,7 @@ class AppColors {
       ? Color(0xff6F7384)
       : Color(0xffA2A2A6);
 
-      // ---------------- General Colors---------------------------------
+  // ---------------- General Colors---------------------------------
   static Color get red => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xffEE4D4D)
       : Color(0xffEE4D4D);
@@ -43,7 +43,7 @@ class AppColors {
   static Color get yellow => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xffEBEF14)
       : Color(0xffEBEF14);
-      static Color get orange => AppTheme.currentTheme == ThemeMode.light
+  static Color get orange => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xffF0821D)
       : Color(0xffF0821D);
   static Color get merigold => AppTheme.currentTheme == ThemeMode.light
@@ -55,7 +55,4 @@ class AppColors {
   static Color get pink => AppTheme.currentTheme == ThemeMode.light
       ? Color(0xffCE1DEB)
       : Color(0xffCE1DEB);
-
-
-
 }

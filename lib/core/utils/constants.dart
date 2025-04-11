@@ -1,2 +1,3 @@
-const tokenK="token";
-const isLoggedInK ="loginDone";
+const tokenK = "token";
+const isLoggedInK = "loginDone";
+String? userToken;

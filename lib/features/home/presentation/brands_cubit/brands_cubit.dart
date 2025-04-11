@@ -3,14 +3,11 @@ import 'package:quick_mart_app/features/home/domain/use_case/get_brands_use_case
 import '../../data/models/category_model.dart';
 import 'brands_states.dart';
 
-
 class BrandsCubit extends Cubit<BrandsStates> {
-  BrandsCubit(this.getBrandsUseCase)
-      : super(GetBrandsInitialState());
+  BrandsCubit(this.getBrandsUseCase) : super(GetBrandsInitialState());
   GetBrandsUseCase getBrandsUseCase;
 
   List<Category>? brandsList;
-
 
   void getBrands() async {
     emit(GetBrandsLoadingState());

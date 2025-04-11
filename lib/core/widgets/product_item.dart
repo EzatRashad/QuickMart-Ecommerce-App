@@ -4,11 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
+import 'package:quick_mart_app/features/home/presentation/products_cubit/products_cubit.dart';
 import 'package:quick_mart_app/features/home/presentation/view/product_details_view.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/product_item_colors.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, required this.product});
+  const ProductItem({super.key, required this.product,  });
 
   final ProductEntity product;
 
@@ -52,14 +53,26 @@ class ProductItem extends StatelessWidget {
                 Positioned(
                     top: 5.h,
                     right: 5.w,
-                    child: CircleAvatar(
-                        radius: 12.r,
-                        backgroundColor: AppColors.black,
+                    child: GestureDetector(
+                      onTap: () {
+                        ProductsCubit.get(context).addToCart(product.id ?? '');
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(8.r),
+                        decoration: BoxDecoration(
+                          color: AppColors.black,
+                        shape: BoxShape.circle,
+                        
+                        ),
                         child: Icon(
-                          FontAwesomeIcons.heart,
-                          size: 10.sp,
+                          FontAwesomeIcons.cartPlus,
+                          size: 15.sp,
                           color: AppColors.white,
-                        )))
+                        ),
+                      ),
+                    )),
+                      
               ]),
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * .01,
@@ -77,16 +90,21 @@ class ProductItem extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontSize: 14.sp, fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        '\$${product.price ?? ''}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                fontSize: 14.sp, fontWeight: FontWeight.w600),
-                      ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          child: Text(
+                            '\$${product.price ?? ''}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                    fontSize: 14.sp, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        Spacer(),
+                        
+                      ],
                     ),
                   ],
                 ),

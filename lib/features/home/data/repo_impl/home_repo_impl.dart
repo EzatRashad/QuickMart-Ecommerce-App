@@ -4,6 +4,7 @@ import 'package:quick_mart_app/features/home/domain/data_source/home_data_source
 import 'package:quick_mart_app/features/home/domain/entities/category_entity.dart';
 import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
 
+import '../../domain/entities/cart_response_entity/cart_response_entity.dart';
 import '../../domain/repo/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -25,5 +26,10 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ProductResponseEntity>> getProducts() {
     return homeRemoteDataSource.getProducts();
+  }
+
+  @override
+  Future<Either<Failure, CartResponseEntity>> addToCart(String productId) {
+    return homeRemoteDataSource.addToCart(productId);
   }
 }

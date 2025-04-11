@@ -33,7 +33,8 @@ class Validation {
     return null;
   }
 
-  static String? validateConfirmPassword(String password, String confirmPassword) {
+  static String? validateConfirmPassword(
+      String password, String confirmPassword) {
     if (confirmPassword.isEmpty) {
       return 'Confirm password cannot be empty';
     } else if (password != confirmPassword) {

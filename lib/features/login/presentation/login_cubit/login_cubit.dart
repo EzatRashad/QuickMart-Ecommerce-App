@@ -6,28 +6,26 @@ import 'package:quick_mart_app/features/login/presentation/login_cubit/login_sta
 
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit({required this.loginUseCase}) : super(LoginInitialState());
-  LoginUseCase loginUseCase  ;
-    TextEditingController email = TextEditingController();
+  LoginUseCase loginUseCase;
+  TextEditingController email = TextEditingController();
 
   TextEditingController password = TextEditingController();
   bool obscureText = true;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  void login()async{
-    if(formKey.currentState!.validate()){
-                        emit(LoginLoadingState());
+  void login() async {
+    if (formKey.currentState!.validate()) {
+      emit(LoginLoadingState());
       try {
-        var response = await loginUseCase.login(
-           LoginRequest(email: email.text, password: password.text));
+        var response = await loginUseCase
+            .login(LoginRequest(email: email.text, password: password.text));
         if (response.message == "success") {
           emit(LoginSuccessState(response));
         } else {
           emit(LoginFailureState(response.statusMsg));
-         
         }
       } catch (e) {
         emit(LoginFailureState(e.toString()));
       }
     }
-                    }
   }
- 
+}

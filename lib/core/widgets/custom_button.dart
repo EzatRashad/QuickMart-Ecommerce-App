@@ -9,13 +9,15 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.borderRadius,
-      this.text,
+    this.text,
     this.fontSize,
     this.height,
     this.width,
     this.textStyle,
     this.onPressed,
-    this.decoration, this.borderColor, this.child,
+    this.decoration,
+    this.borderColor,
+    this.child,
   });
   final String? text;
   final Color? backgroundColor;
@@ -29,7 +31,7 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Function()? onPressed;
   final Decoration? decoration;
-   @override
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
@@ -38,21 +40,24 @@ class CustomButton extends StatelessWidget {
         width: width ?? MediaQuery.sizeOf(context).width,
         decoration: decoration ??
             ShapeDecoration(
-              color:backgroundColor?? AppColors.black,
+              color: backgroundColor ?? AppColors.black,
               shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1.w, color:borderColor??Colors.transparent),
+                side: BorderSide(
+                    width: 1.w, color: borderColor ?? Colors.transparent),
                 borderRadius: BorderRadius.circular(12.r),
               ),
             ),
         child: Center(
-          child: text != null ?Text(
-            text??"",
-            style: textStyle ??
-                Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(color: textColor ?? AppColors.white),
-          ):child,
+          child: text != null
+              ? Text(
+                  text ?? "",
+                  style: textStyle ??
+                      Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: textColor ?? AppColors.white),
+                )
+              : child,
         ),
       ),
     );

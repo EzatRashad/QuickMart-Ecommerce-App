@@ -5,8 +5,10 @@ import '../../data/models/category_model.dart';
 import 'catigories_states.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
-  CategoriesCubit(this.getAllCategoriesUseCase)
+  CategoriesCubit({required this.getAllCategoriesUseCase})
       : super(CategoriesInitialState());
+        static CategoriesCubit get(context) => BlocProvider.of(context);
+
   GetAllCategoriesUseCase getAllCategoriesUseCase;
   List<Category>? categoriesList;
 
@@ -14,7 +16,8 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     emit(GetCategoriesLoadingState());
     try {
       var categories = await getAllCategoriesUseCase.call();
-      categories.fold((l) => emit(GetCategoriesSErrorState(l.errorMessage)), (r) {
+      categories.fold((l) => emit(GetCategoriesSErrorState(l.errorMessage)),
+          (r) {
         categoriesList = (r.data ?? []).cast<Category>();
         emit(GetCategoriesSuccessState(r));
       });
@@ -22,5 +25,4 @@ class CategoriesCubit extends Cubit<CategoriesState> {
       emit(GetCategoriesSErrorState(e.toString()));
     }
   }
-
 }

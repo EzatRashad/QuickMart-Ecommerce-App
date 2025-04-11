@@ -18,7 +18,6 @@ class HomeAppBar extends StatelessWidget {
       actions: [
         Assets.images.searchNormal.svg(
           width: 32.w,
-          
         ),
         12.pw,
         Container(

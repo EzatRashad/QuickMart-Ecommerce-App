@@ -63,7 +63,10 @@ class _LoginViewBodyState extends State<LoginViewBody>
               await CasheHelper.saveData(key: isLoggedInK, value: true);
               await CasheHelper.saveData(
                   key: tokenK, value: state.loginResponse?.token);
-              print(state.loginResponse?.token);
+              userToken = state.loginResponse?.token;
+              bool isLoggedIn = CasheHelper.getData(key: isLoggedInK) ?? false;
+              print(isLoggedIn);
+              print(userToken);
               context.nextScreen(LayoutView());
             }
           }

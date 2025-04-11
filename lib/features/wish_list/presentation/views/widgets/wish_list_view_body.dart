@@ -5,7 +5,7 @@ import 'package:quick_mart_app/core/widgets/empty_widget.dart';
 
 class WishListViewBody extends StatelessWidget {
   const WishListViewBody({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     int count = 0;
@@ -19,7 +19,11 @@ class WishListViewBody extends StatelessWidget {
         ),
       ),
       body: count == 0
-          ? EmptyWidget(image: 'assets/images/empty2.png',description: "Tap heart button to start saving your favorite items." , message: 'Your wishlist is empty')
+          ? EmptyWidget(
+              image: 'assets/images/empty2.png',
+              description:
+                  "Tap heart button to start saving your favorite items.",
+              message: 'Your wishlist is empty')
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
@@ -34,19 +38,15 @@ class WishListViewBody extends StatelessWidget {
                               physics: NeverScrollableScrollPhysics(),
                               itemCount: 2,
                               itemBuilder: (context, index) {
-                                return EmptyAndWishProduct(
-                                  
-                                );
+                                return EmptyAndWishProduct();
                               },
                               separatorBuilder: (context, index) => 5.ph,
                             ),
-                          
                           ]),
                         ),
                       ],
                     ),
                   ),
-                  
                 ],
               ),
             ),

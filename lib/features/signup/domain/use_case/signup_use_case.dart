@@ -7,5 +7,6 @@ class SignupUseCase {
   SignupUseCase({required this.signupRepo});
 
   SignupRepo signupRepo;
-Future<RegisterResponse>  signup(RegisterRequest registerRequest) => signupRepo.signup(registerRequest);
+  Future<RegisterResponse> signup(RegisterRequest registerRequest) =>
+      signupRepo.signup(registerRequest);
 }

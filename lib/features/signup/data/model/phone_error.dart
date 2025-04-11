@@ -1,12 +1,14 @@
- 
-
 class Error {
   String value;
   String msg;
   String param;
   String location;
 
-  Error({required this.value, required this.msg, required this.param, required this.location});
+  Error(
+      {required this.value,
+      required this.msg,
+      required this.param,
+      required this.location});
 
   factory Error.fromJson(Map<String, dynamic> json) {
     return Error(

@@ -18,7 +18,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
     return SizedBox(
       height: 60.h,
       child: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.fixed,
           backgroundColor: AppColors.white,
           elevation: 0,
           currentIndex: widget.homeCubit.selectedIndex,
@@ -41,7 +41,6 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       : AppColors.grey150,
                 ),
                 label: "Home"),
-
             BottomNavigationBarItem(
                 icon: Assets.images.cartIcon.image(
                   height: 20.h,

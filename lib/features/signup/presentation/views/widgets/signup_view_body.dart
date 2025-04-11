@@ -66,12 +66,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content:
                   Text(state.registerResponse.message ?? "Success.......")));
-                  await CasheHelper.saveData(key: isLoggedInK, value: true);
-                  await CasheHelper.saveData(key: tokenK, value: state.registerResponse.token);
+          await CasheHelper.saveData(key: isLoggedInK, value: true);
+          await CasheHelper.saveData(
+              key: tokenK, value: state.registerResponse.token);
 
-                                context.nextScreen(LayoutView());
-
-
+          context.nextScreen(LayoutView());
         }
       },
       child: Scaffold(

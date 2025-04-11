@@ -34,7 +34,8 @@ class ProductDetailsViewBody extends StatelessWidget {
                     title: product.title ?? "",
                     price: product.price ?? 0,
                     category: product.category?.name ?? "",
-                    subCategory: product.subcategory?[0].name ?? "", brand: product.brand!.name??"",
+                    subCategory: product.subcategory?[0].name ?? "",
+                    brand: product.brand!.name ?? "",
                   ),
                   12.ph,
                   RateWidget(

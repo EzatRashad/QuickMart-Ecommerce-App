@@ -14,6 +14,8 @@ class ProductDetailsView extends StatefulWidget {
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   @override
   Widget build(BuildContext context) {
-    return ProductDetailsViewBody(product: widget.product,);
+    return ProductDetailsViewBody(
+      product: widget.product,
+    );
   }
 }

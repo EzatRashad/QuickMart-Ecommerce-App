@@ -7,7 +7,7 @@ import '../../features/signup/data/model/register_request.dart';
 import '../../features/signup/data/model/register_response.dart';
 
 class AuthApiService {
-     final Dio _dio;
+  final Dio _dio;
 
   const AuthApiService(this._dio);
 
@@ -15,7 +15,6 @@ class AuthApiService {
     required RegisterRequest registerRequest,
   }) async {
     try {
-      
       final response = await _dio.post(
         ApiConstants.registerEndPoint,
         data: registerRequest.toJson(),
@@ -27,7 +26,7 @@ class AuthApiService {
       if (exception is DioException) {
         message = exception.response?.data['message'];
       }
-      throw  message ?? 'Failed to Register' ;
+      throw message ?? 'Failed to Register';
     }
   }
 
@@ -35,7 +34,6 @@ class AuthApiService {
     required LoginRequest loginRequest,
   }) async {
     try {
-      
       final response = await _dio.post(
         ApiConstants.loginEndPoint,
         data: loginRequest.toJson(),
@@ -47,7 +45,7 @@ class AuthApiService {
       if (exception is DioException) {
         message = exception.response?.data['message'];
       }
-      throw  message ?? 'Failed to Login' ;
+      throw message ?? 'Failed to Login';
     }
   }
 }

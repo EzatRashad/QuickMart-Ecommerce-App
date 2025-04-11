@@ -35,7 +35,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
                         image: AssetImage(
                           e,
                         ),
-                        height:  MediaQuery.sizeOf(context).height * .22,
+                        height: MediaQuery.sizeOf(context).height * .22,
                         fit: BoxFit.fill,
                       ),
                       Positioned(
@@ -66,7 +66,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
           .toList(),
       options: CarouselOptions(
         viewportFraction: 1.0,
-        height:  MediaQuery.sizeOf(context).height * .22,
+        height: MediaQuery.sizeOf(context).height * .22,
         enableInfiniteScroll: true,
         reverse: false,
         autoPlay: true,

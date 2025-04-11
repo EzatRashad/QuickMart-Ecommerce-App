@@ -9,6 +9,6 @@ class SignupRepoImpl implements SignupRepo {
   SignupRepoImpl({required this.signupRemoteDataSource});
   @override
   Future<RegisterResponse> signup(RegisterRequest registerRequest) {
-  return  signupRemoteDataSource.signup(registerRequest);
+    return signupRemoteDataSource.signup(registerRequest);
   }
 }

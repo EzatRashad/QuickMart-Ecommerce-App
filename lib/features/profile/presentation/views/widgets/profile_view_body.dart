@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
 

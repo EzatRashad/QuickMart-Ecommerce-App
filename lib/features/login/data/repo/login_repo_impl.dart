@@ -5,13 +5,12 @@ import 'package:quick_mart_app/features/login/domain/data_source/login_remote_da
 
 import '../../domain/repo/login_repo.dart';
 
-class LoginRepoImpl implements LoginRepo{
-  LoginRemoteDataSource loginRemoteDataSource ;
+class LoginRepoImpl implements LoginRepo {
+  LoginRemoteDataSource loginRemoteDataSource;
 
   LoginRepoImpl({required this.loginRemoteDataSource});
   @override
   Future<LoginResponse> login(LoginRequest loginRequest) {
     return loginRemoteDataSource.login(loginRequest);
-     
   }
 }

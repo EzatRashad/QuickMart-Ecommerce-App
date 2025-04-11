@@ -56,7 +56,7 @@ class CustomTextFormFiled extends StatelessWidget {
                 width: .5,
               ),
             ),
-             errorMaxLines: 3,
+            errorMaxLines: 3,
             errorStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: AppColors.red,
                 ),

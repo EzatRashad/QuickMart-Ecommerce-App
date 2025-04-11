@@ -4,7 +4,11 @@ import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 class CategoriesItem extends StatelessWidget {
-  const CategoriesItem({super.key, required this.image, required this.name, });
+  const CategoriesItem({
+    super.key,
+    required this.image,
+    required this.name,
+  });
 
   final String image;
   final String name;
@@ -16,13 +20,11 @@ class CategoriesItem extends StatelessWidget {
       child: Container(
         height: 10.h,
         width: double.infinity,
-         decoration: ShapeDecoration(
-          color: AppColors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
-           )
-      
-        ),
+        decoration: ShapeDecoration(
+            color: AppColors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.r),
+            )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,13 +34,14 @@ class CategoriesItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: Image.network(
-                 image ?? '',
+                  image ?? '',
                   width: double.infinity,
-                   fit: BoxFit.fill,
+                  fit: BoxFit.fill,
                   errorBuilder: (context, error, stackTrace) => Container(
                     height: 100.h,
                     color: Colors.grey.shade300,
-                    child: Center(child: Icon(Icons.error, color: AppColors.red)),
+                    child:
+                        Center(child: Icon(Icons.error, color: AppColors.red)),
                   ),
                 ),
               ),
@@ -50,9 +53,9 @@ class CategoriesItem extends StatelessWidget {
                 name ?? '',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14.sp,
-                ),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14.sp,
+                    ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),

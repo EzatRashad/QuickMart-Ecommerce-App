@@ -18,13 +18,16 @@ class CasheHelper {
     if (value is bool) return await sharedPreferences.setBool(key, value);
     return await sharedPreferences.setDouble(key, value);
   }
+
   static Future<void> saveThemeMode(String mode) async {
     await saveData(key: 'theme_mode', value: mode);
   }
+
   // Method to get theme mode
   static String? getThemeMode() {
     return getData(key: 'theme_mode') as String?;
   }
+
   static Future<bool> removeData({required String key}) async {
     return sharedPreferences.remove(key);
   }

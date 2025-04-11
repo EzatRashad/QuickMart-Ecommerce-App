@@ -1,5 +1,6 @@
-
 import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
+
+import '../../domain/entities/cart_response_entity/cart_response_entity.dart';
 
 class ProductsState {}
 
@@ -18,3 +19,18 @@ class ProductsSErrorState extends ProductsState {
 }
 
 class ProductsLoadingState extends ProductsState {}
+
+class AddToCartInitialState extends ProductsState {}
+
+class AddToCartSuccessState extends ProductsState {
+  CartResponseEntity cartResponseEntity;
+  AddToCartSuccessState(this.cartResponseEntity);
+}
+
+class AddToCartErrorState extends ProductsState {
+  final String message;
+
+  AddToCartErrorState(this.message);
+}
+
+class AddToCartLoadingState extends ProductsState {}

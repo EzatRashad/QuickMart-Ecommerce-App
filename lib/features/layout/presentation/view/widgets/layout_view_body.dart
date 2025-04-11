@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'custom_nav_bar.dart';
@@ -22,11 +21,10 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          bottomNavigationBar: CustomNavBar(
-            homeCubit: layoutCubit,
-          ),
-          body: layoutCubit.screens[layoutCubit.selectedIndex]
-        );
+            bottomNavigationBar: CustomNavBar(
+              homeCubit: layoutCubit,
+            ),
+            body: layoutCubit.screens[layoutCubit.selectedIndex]);
       },
     );
   }

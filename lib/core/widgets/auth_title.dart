@@ -8,7 +8,8 @@ class AuthTitle extends StatelessWidget {
       {super.key,
       required this.title,
       required this.span1,
-      required this.span2, required this.onTap});
+      required this.span2,
+      required this.onTap});
   final String title;
   final String span1;
   final String span2;
@@ -25,7 +26,7 @@ class AuthTitle extends StatelessWidget {
         ),
         8.ph,
         GestureDetector(
-          onTap:onTap ,
+          onTap: onTap,
           child: Text.rich(
             TextSpan(children: [
               TextSpan(

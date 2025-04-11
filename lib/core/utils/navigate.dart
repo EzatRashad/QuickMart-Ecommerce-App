@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
- 
 extension NavigationExtension on BuildContext {
-  void nextScreen(Widget screen, {bool replacment = false, bool remove = false}) {
-
+  void nextScreen(Widget screen,
+      {bool replacment = false, bool remove = false}) {
     if (remove) {
       // Remove all screens and push the new one
       Navigator.pushAndRemoveUntil(
@@ -21,7 +20,6 @@ extension NavigationExtension on BuildContext {
     }
   }
 }
-
 
 /*
 -- To a new screen without any specific requirements:

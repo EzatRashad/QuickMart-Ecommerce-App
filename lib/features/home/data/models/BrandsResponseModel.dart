@@ -1,13 +1,14 @@
-
 class BrandsResponseModel {
   BrandsResponseModel({
-      this.results, 
-      this.metadata, 
-      this.data,});
+    this.results,
+    this.metadata,
+    this.data,
+  });
 
   BrandsResponseModel.fromJson(dynamic json) {
     results = json['results'];
-    metadata = json['metadata'] != null ? Metadata.fromJson(json['metadata']) : null;
+    metadata =
+        json['metadata'] != null ? Metadata.fromJson(json['metadata']) : null;
     if (json['data'] != null) {
       data = [];
       json['data'].forEach((v) {
@@ -30,19 +31,17 @@ class BrandsResponseModel {
     }
     return map;
   }
-
-
 }
-
 
 class Data {
   Data({
-      this.id, 
-      this.name, 
-      this.slug, 
-      this.image, 
-      this.createdAt, 
-      this.updatedAt,});
+    this.id,
+    this.name,
+    this.slug,
+    this.image,
+    this.createdAt,
+    this.updatedAt,
+  });
 
   Data.fromJson(dynamic json) {
     id = json['_id'];
@@ -69,15 +68,15 @@ class Data {
     map['updatedAt'] = updatedAt;
     return map;
   }
-
 }
 
 class Metadata {
   Metadata({
-      this.currentPage, 
-      this.numberOfPages, 
-      this.limit, 
-      this.nextPage,});
+    this.currentPage,
+    this.numberOfPages,
+    this.limit,
+    this.nextPage,
+  });
 
   Metadata.fromJson(dynamic json) {
     currentPage = json['currentPage'];
@@ -98,5 +97,4 @@ class Metadata {
     map['nextPage'] = nextPage;
     return map;
   }
-
 }

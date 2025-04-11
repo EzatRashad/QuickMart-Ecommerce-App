@@ -53,19 +53,16 @@ class ProductCategoryEntity {
   ProductCategoryEntity({
     this.id,
     this.name,
-
   });
 
   String? id;
   String? name;
-
 }
 
 class ProductSubcategoryEntity {
   ProductSubcategoryEntity({
     this.id,
     this.name,
-
     this.category,
   });
 

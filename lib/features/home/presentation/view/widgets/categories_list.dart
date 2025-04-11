@@ -27,19 +27,11 @@ class CategoriesList extends StatefulWidget {
 }
 
 class _CategoriesListState extends State<CategoriesList> {
-  CategoriesCubit homeCubit = CategoriesCubit(
-      GetAllCategoriesUseCase(HomeRepoImpl(
-          homeRemoteDataSource: HomeRemoteDataSourceImpl(
-        homeApiService: HomeApiService(Dio()),
-      ))),
-     );
+   
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CategoriesCubit, CategoriesState>(
-        bloc: homeCubit
-          ..getCategories(),
-
         listener: (context, state) {},
         builder: (context, state) {
           if (state is GetCategoriesSuccessState) {
@@ -49,7 +41,8 @@ class _CategoriesListState extends State<CategoriesList> {
                     title: "Categories",
                     onTap: () {
                       context.nextScreen(CategoriesViewBody(
-                        categoriesList: homeCubit.categoriesList ?? [],
+                        categoriesList: CategoriesCubit.get(context)
+                                .categoriesList ?? [],
                       ));
                     }),
                 12.ph,
@@ -62,7 +55,6 @@ class _CategoriesListState extends State<CategoriesList> {
                         buildCategoryItem(context, index),
                   ),
                 ),
-
               ],
             );
           } else if (state is GetCategoriesSErrorState) {
@@ -78,7 +70,7 @@ class _CategoriesListState extends State<CategoriesList> {
   }
 
   Widget buildCategoryItem(BuildContext context, int index) {
-    final category = homeCubit.categoriesList![index + 3];
+    final category = CategoriesCubit.get(context).categoriesList![index + 3];
 
     return Padding(
       padding: EdgeInsets.only(right: 5.0.r),

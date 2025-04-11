@@ -3,7 +3,6 @@ import 'package:quick_mart_app/core/functions/cashe_helper.dart';
 
 import '../utils/app_theme.dart';
 
- 
 class AppConfigProvider extends ChangeNotifier {
   String applang = CasheHelper.getData(key: 'lang') ?? 'ar';
 
@@ -14,7 +13,8 @@ class AppConfigProvider extends ChangeNotifier {
   Future<void> _loadThemeMode() async {
     String? savedMode = CasheHelper.getThemeMode();
     if (savedMode != null) {
-      AppTheme.currentTheme = savedMode == 'dark' ? ThemeMode.dark : ThemeMode.light;
+      AppTheme.currentTheme =
+          savedMode == 'dark' ? ThemeMode.dark : ThemeMode.light;
       notifyListeners();
     }
   }
@@ -24,7 +24,8 @@ class AppConfigProvider extends ChangeNotifier {
       return;
     } else {
       AppTheme.currentTheme = newMode;
-      await CasheHelper.saveThemeMode(newMode == ThemeMode.dark ? 'dark' : 'light');
+      await CasheHelper.saveThemeMode(
+          newMode == ThemeMode.dark ? 'dark' : 'light');
       notifyListeners();
     }
   }

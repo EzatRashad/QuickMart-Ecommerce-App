@@ -3,11 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 
 class EmptyWidget extends StatelessWidget {
-  const EmptyWidget({super.key, required this.message, required this.description, required this.image});
+  const EmptyWidget(
+      {super.key,
+      required this.message,
+      required this.description,
+      required this.image});
   final String message;
   final String description;
   final String image;
-
 
   @override
   Widget build(BuildContext context) {

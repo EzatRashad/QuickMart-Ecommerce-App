@@ -46,7 +46,8 @@ class Category extends CategoryEntity {
   }
 
   String? createdAt;
-  String? updatedAt;String? message;
+  String? updatedAt;
+  String? message;
 
   String? statusMsg;
 }

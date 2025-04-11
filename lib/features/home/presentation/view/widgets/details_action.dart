@@ -10,7 +10,7 @@ class DetailsAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomButton(
+    return CustomButton(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

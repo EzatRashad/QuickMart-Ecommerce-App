@@ -20,36 +20,33 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.0.w,
-          ),
-          child: CustomScrollView(
-            slivers: [
-              HomeAppBar(),
-              SliverToBoxAdapter(
-                child: Column(
-                  children: [
-
-                    HomeCarousel(),
-                    12.ph,
-
-                    CategoriesList(),
-                    12.ph,
-                    // BrandsList(),
-                    // 12.ph,
-                    HeadLine(title: "Latest Products", onTap: () {}),
-                    12.ph
-                  ],
-                ),
-              ),
-              const ProductGrid(),
-            ],
-          ),
+        body: SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.0.w,
         ),
-      )
-    );
-  }
+        child: CustomScrollView(
+          slivers: [
+            HomeAppBar(),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  HomeCarousel(),
+                  12.ph,
 
+                  CategoriesList(),
+                  12.ph,
+                  // BrandsList(),
+                  // 12.ph,
+                  HeadLine(title: "Latest Products", onTap: () {}),
+                  12.ph
+                ],
+              ),
+            ),
+            const ProductGrid(),
+          ],
+        ),
+      ),
+    ));
+  }
 }

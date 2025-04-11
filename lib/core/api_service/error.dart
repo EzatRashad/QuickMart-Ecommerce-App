@@ -4,6 +4,4 @@ class BaseError {
   BaseError({this.errorMessage});
 }
 
-class ServerError extends BaseError {
- 
-}
+class ServerError extends BaseError {}

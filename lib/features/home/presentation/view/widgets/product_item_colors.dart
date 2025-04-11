@@ -22,7 +22,7 @@ class _ProductItemColorsState extends State<ProductItemColors> {
     return SizedBox(
       height: 25.h,
       child: Row(
-         children: [
+        children: [
           Row(
             children: [
               for (int i = 0; i < colors.length; i++)
@@ -34,14 +34,12 @@ class _ProductItemColorsState extends State<ProductItemColors> {
                       child: Container(
                         width: 45.w,
                         height: 45.h,
-                        decoration:
-                            ShapeDecoration(color: colors[i], shape: CircleBorder()),
+                        decoration: ShapeDecoration(
+                            color: colors[i], shape: CircleBorder()),
                       ),
                     )),
             ],
           ),
-
-
         ],
       ),
     );

@@ -1,7 +1,8 @@
 import 'package:quick_mart_app/features/home/domain/entities/category_entity.dart';
 
-abstract class BrandsStates{}
-  class GetBrandsInitialState extends BrandsStates {}
+abstract class BrandsStates {}
+
+class GetBrandsInitialState extends BrandsStates {}
 
 class GetBrandsSuccessState extends BrandsStates {
   CategoryResponseEntity brands;

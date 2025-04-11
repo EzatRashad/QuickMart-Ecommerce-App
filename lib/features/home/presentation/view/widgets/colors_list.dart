@@ -12,16 +12,17 @@ class ColorsList extends StatefulWidget {
   State<ColorsList> createState() => _ColorsListState();
 }
 
-class _ColorsListState extends State<ColorsList> {  int selectedColor = 0;
-List<Color> colors = [
-  AppColors.black,
-  AppColors.grey100,
-  AppColors.blue,
-  AppColors.green
-];
+class _ColorsListState extends State<ColorsList> {
+  int selectedColor = 0;
+  List<Color> colors = [
+    AppColors.black,
+    AppColors.grey100,
+    AppColors.blue,
+    AppColors.green
+  ];
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -38,19 +39,19 @@ List<Color> colors = [
               scrollDirection: Axis.horizontal,
               itemCount: colors.length,
               itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(right: 4.0.w),
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedColor = index;
-                    });
-                  },
-                  child: ColorsWidget(
-                    selected: selectedColor == index,
-                    color: colors[index],
-                  ),
-                ),
-              )),
+                    padding: EdgeInsets.only(right: 4.0.w),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedColor = index;
+                        });
+                      },
+                      child: ColorsWidget(
+                        selected: selectedColor == index,
+                        color: colors[index],
+                      ),
+                    ),
+                  )),
         ),
       ],
     );

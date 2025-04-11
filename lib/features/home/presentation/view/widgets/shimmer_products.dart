@@ -31,7 +31,6 @@ class ShimmerProductItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
@@ -62,7 +61,6 @@ class ShimmerProductItem extends StatelessWidget {
                 ),
               ),
             ),
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

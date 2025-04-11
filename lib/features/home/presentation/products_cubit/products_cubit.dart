@@ -1,15 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quick_mart_app/features/home/presentation/brands_cubit/brands_states.dart';
+import 'package:quick_mart_app/features/home/domain/use_case/add_to_cart_use_case.dart';
 import 'package:quick_mart_app/features/home/presentation/products_cubit/products_states.dart';
 
 import '../../data/models/ProductResponseModel.dart';
 import '../../domain/use_case/get_products_use_case.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  ProductsCubit({required this.getProductsUseCase}) : super(ProductsInitialState());
+  ProductsCubit(
+      {required this.getProductsUseCase, required this.addToCartUseCase})
+      : super(ProductsInitialState());
 
-List<Product>? productsList;
- GetProductsUseCase getProductsUseCase;
+  static ProductsCubit get(context) => BlocProvider.of(context);
+  List<Product>? productsList;
+  GetProductsUseCase getProductsUseCase;
+  AddToCartUseCase addToCartUseCase;
 
   void getProducts() async {
     emit(ProductsLoadingState());
@@ -23,4 +27,21 @@ List<Product>? productsList;
       emit(ProductsSErrorState(e.toString()));
     }
   }
+
+  int numOfCartItems = 0;
+  void addToCart(String productId) async {
+    emit(AddToCartLoadingState());
+    try {
+      var result = await addToCartUseCase.call(productId);
+      result.fold((l) => emit(AddToCartErrorState(l.errorMessage)), (r) {
+        numOfCartItems = r.numOfCartItems?? 0;
+        print('numOfCartItems: $numOfCartItems');
+        emit(AddToCartSuccessState(r));
+      });
+    } catch (e) {
+      emit(AddToCartErrorState(e.toString()));
+    }
+  }
+  
+  
 }
