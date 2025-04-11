@@ -7,7 +7,6 @@ import 'package:quick_mart_app/features/home/presentation/view/widgets/head_line
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_app_bar.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/home_carousel.dart';
 
-import 'brands_list.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
