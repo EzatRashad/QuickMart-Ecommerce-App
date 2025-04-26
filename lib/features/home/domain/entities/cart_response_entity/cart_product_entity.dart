@@ -5,6 +5,4 @@ class CartProductEntity {
   int? price;
 
   CartProductEntity({this.count, this.id, this.product, this.price});
-
-  
 }

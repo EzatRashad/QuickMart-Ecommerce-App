@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/navigate.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import 'package:quick_mart_app/features/home/data/data_source/home_data_source_impl.dart';
+import 'package:quick_mart_app/features/home/data/data_source_impl/home_data_source_impl.dart';
 import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart';
 import 'package:quick_mart_app/features/home/data/repo_impl/home_repo_impl.dart';
 import 'package:quick_mart_app/features/home/domain/use_case/get_categories_use_case.dart';
@@ -27,8 +27,6 @@ class CategoriesList extends StatefulWidget {
 }
 
 class _CategoriesListState extends State<CategoriesList> {
-   
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CategoriesCubit, CategoriesState>(
@@ -41,8 +39,8 @@ class _CategoriesListState extends State<CategoriesList> {
                     title: "Categories",
                     onTap: () {
                       context.nextScreen(CategoriesViewBody(
-                        categoriesList: CategoriesCubit.get(context)
-                                .categoriesList ?? [],
+                        categoriesList:
+                            CategoriesCubit.get(context).categoriesList ?? [],
                       ));
                     }),
                 12.ph,

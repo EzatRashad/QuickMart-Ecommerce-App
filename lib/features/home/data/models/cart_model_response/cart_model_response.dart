@@ -3,8 +3,6 @@ import 'package:quick_mart_app/features/home/domain/entities/cart_response_entit
 import 'cart_data.dart';
 
 class CartModelResponse extends CartResponseEntity {
- 
-
   CartModelResponse({
     super.status,
     super.message,
@@ -23,6 +21,4 @@ class CartModelResponse extends CartResponseEntity {
             ? null
             : CartData.fromJson(json['data'] as Map<String, dynamic>),
       );
-
-  
 }

@@ -1,8 +1,6 @@
 import '../../../domain/entities/cart_response_entity/cart_product_entity.dart';
 
 class CartProduct extends CartProductEntity {
-   
-
   CartProduct({super.count, super.id, super.product, super.price});
 
   factory CartProduct.fromJson(Map<String, dynamic> json) => CartProduct(
@@ -11,5 +9,4 @@ class CartProduct extends CartProductEntity {
         product: json['product'] as String?,
         price: json['price'] as int?,
       );
- 
 }

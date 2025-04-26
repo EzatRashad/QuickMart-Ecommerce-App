@@ -3,12 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
+import 'package:quick_mart_app/features/home/domain/entities/get_cart_response_entity.dart';
 
 import '../../../../core/utils/assets.gen.dart';
 
-class EmptyAndWishProduct extends StatelessWidget {
-  const EmptyAndWishProduct({super.key, this.isCart = false});
+class CartAndWishProduct extends StatelessWidget {
+  const CartAndWishProduct(
+      {super.key, this.isCart = false, required this.getProductsEntity});
   final bool isCart;
+  final GetProductsEntity? getProductsEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,8 @@ class EmptyAndWishProduct extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Assets.images.product.image(
+            child: Image.network(
+              getProductsEntity?.product?.imageCover??"",
               fit: BoxFit.fill,
               width: 120.w,
               height: 132.h,
@@ -37,19 +41,19 @@ class EmptyAndWishProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Loop Silicone Strong Magnetic Watch',
+                Text(getProductsEntity?.product!.title ?? "",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.07,
                         )),
-                Text('\$15.25',
+                Text('\$${getProductsEntity?.price}',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontSize: 12,
                         )),
                 Text(
-                  '\$20.25',
+                  '\$${(getProductsEntity?.price ?? 0) + 20}',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         decoration: TextDecoration.lineThrough,
                       ),

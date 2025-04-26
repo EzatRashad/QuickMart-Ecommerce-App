@@ -12,7 +12,7 @@ import 'package:quick_mart_app/features/layout/presentation/view/layout_view.dar
 import 'package:quick_mart_app/features/onboarding/presentation/views/onboarding_view.dart';
 
 import 'core/utils/bloc_observar.dart';
-import 'features/home/data/data_source/home_data_source_impl.dart';
+import 'features/home/data/data_source_impl/home_data_source_impl.dart';
 import 'features/home/data/home_api_service/home_api.dart';
 import 'features/home/data/repo_impl/home_repo_impl.dart';
 import 'features/home/domain/use_case/add_to_cart_use_case.dart';
@@ -45,10 +45,14 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => CategoriesCubit(getAllCategoriesUseCase: GetAllCategoriesUseCase(HomeRepoImpl(
+            BlocProvider(
+                create: (context) => CategoriesCubit(
+                        getAllCategoriesUseCase:
+                            GetAllCategoriesUseCase(HomeRepoImpl(
                                 homeRemoteDataSource: HomeRemoteDataSourceImpl(
                       homeApiService: HomeApiService(Dio()),
-                    ))))..getCategories()),
+                    ))))
+                      ..getCategories()),
             BlocProvider(
               create: (context) => ProductsCubit(
                 getProductsUseCase: GetProductsUseCase(

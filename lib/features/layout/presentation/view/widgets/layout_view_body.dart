@@ -22,7 +22,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       builder: (context, state) {
         return Scaffold(
             bottomNavigationBar: CustomNavBar(
-              homeCubit: layoutCubit,
+              layoutCubit: layoutCubit,
             ),
             body: layoutCubit.screens[layoutCubit.selectedIndex]);
       },

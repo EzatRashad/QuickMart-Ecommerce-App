@@ -82,7 +82,7 @@ class _ProductDetailsAppBarState extends State<ProductDetailsAppBar> {
           },
           itemBuilder: (context, index) {
             return Image.network(
-              widget.images[index] ,
+              widget.images[index],
               fit: BoxFit.fill,
               height: MediaQuery.sizeOf(context).height * 0.46,
               width: double.infinity,

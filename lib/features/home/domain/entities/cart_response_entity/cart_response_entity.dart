@@ -14,6 +14,4 @@ class CartResponseEntity {
     this.cartId,
     this.data,
   });
-
- 
 }

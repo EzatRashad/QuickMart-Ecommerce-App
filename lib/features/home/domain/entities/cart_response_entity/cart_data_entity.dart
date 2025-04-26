@@ -18,7 +18,4 @@ class CartDataEntity {
     this.v,
     this.totalCartPrice,
   });
-
- 
- 
 }

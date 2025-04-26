@@ -9,7 +9,10 @@ import 'package:quick_mart_app/features/home/presentation/view/product_details_v
 import 'package:quick_mart_app/features/home/presentation/view/widgets/product_item_colors.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, required this.product,  });
+  const ProductItem({
+    super.key,
+    required this.product,
+  });
 
   final ProductEntity product;
 
@@ -62,8 +65,7 @@ class ProductItem extends StatelessWidget {
                         padding: EdgeInsets.all(8.r),
                         decoration: BoxDecoration(
                           color: AppColors.black,
-                        shape: BoxShape.circle,
-                        
+                          shape: BoxShape.circle,
                         ),
                         child: Icon(
                           FontAwesomeIcons.cartPlus,
@@ -72,7 +74,6 @@ class ProductItem extends StatelessWidget {
                         ),
                       ),
                     )),
-                      
               ]),
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * .01,
@@ -99,11 +100,11 @@ class ProductItem extends StatelessWidget {
                                 .textTheme
                                 .titleMedium!
                                 .copyWith(
-                                    fontSize: 14.sp, fontWeight: FontWeight.w600),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600),
                           ),
                         ),
                         Spacer(),
-                        
                       ],
                     ),
                   ],

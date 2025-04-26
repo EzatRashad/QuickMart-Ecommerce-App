@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderDetail extends StatelessWidget {
-  const OrderDetail({super.key});
+  const OrderDetail({super.key, required this.subTotal});
+  final num subTotal;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class OrderDetail extends StatelessWidget {
         ),
         DetailsRow(
           title: 'Subtotal',
-          value: '\$30.5',
+          value: '\$ ${subTotal.toString()}',
         ),
         DetailsRow(
           title: 'Shipping Cost',
@@ -28,7 +29,7 @@ class OrderDetail extends StatelessWidget {
         ),
         DetailsRow(
           title: 'Total',
-          value: '\$30.5',
+          value: '\$${subTotal.toString()}',
         ),
       ],
     );

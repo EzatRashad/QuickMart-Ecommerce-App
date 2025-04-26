@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
-import 'package:quick_mart_app/core/widgets/empty_and_wish_product.dart';
+import 'package:quick_mart_app/core/widgets/cart_and_wish_product.dart';
 import 'package:quick_mart_app/core/widgets/empty_widget.dart';
+import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
 
 class WishListViewBody extends StatelessWidget {
   const WishListViewBody({super.key});
@@ -38,7 +39,11 @@ class WishListViewBody extends StatelessWidget {
                               physics: NeverScrollableScrollPhysics(),
                               itemCount: 2,
                               itemBuilder: (context, index) {
-                                return EmptyAndWishProduct();
+                                return CartAndWishProduct(
+                                  getProductsEntity:
+                                      GetCartItemsCubit.get(context)
+                                          .itemsList![index],
+                                );
                               },
                               separatorBuilder: (context, index) => 5.ph,
                             ),

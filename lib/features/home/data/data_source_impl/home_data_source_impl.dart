@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart';
+import 'package:quick_mart_app/features/home/domain/entities/get_cart_response_entity.dart';
 import 'package:quick_mart_app/features/home/domain/entities/productResponseEntity.dart';
 
 import '../../../../core/failure/failure.dart';
@@ -64,6 +65,19 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> getCartItems() async {
+    try {
+      
+      var response = await homeApiService.getCartItems();
+      return response.fold(
+          (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+          (r) => Right(r));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
@@ -88,6 +102,12 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
   Future<Either<Failure, CartResponseEntity>> addToCart(String productId) {
     // TODO: implement addToCart
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, CartResponseEntity>> getCartItems() {
+    // TODO: implement getCartItems
     throw UnimplementedError();
   }
 }

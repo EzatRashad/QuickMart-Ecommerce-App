@@ -7,7 +7,7 @@ import 'catigories_states.dart';
 class CategoriesCubit extends Cubit<CategoriesState> {
   CategoriesCubit({required this.getAllCategoriesUseCase})
       : super(CategoriesInitialState());
-        static CategoriesCubit get(context) => BlocProvider.of(context);
+  static CategoriesCubit get(context) => BlocProvider.of(context);
 
   GetAllCategoriesUseCase getAllCategoriesUseCase;
   List<Category>? categoriesList;

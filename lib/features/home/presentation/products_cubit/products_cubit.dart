@@ -34,7 +34,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     try {
       var result = await addToCartUseCase.call(productId);
       result.fold((l) => emit(AddToCartErrorState(l.errorMessage)), (r) {
-        numOfCartItems = r.numOfCartItems?? 0;
+        numOfCartItems = r.numOfCartItems ?? 0;
         print('numOfCartItems: $numOfCartItems');
         emit(AddToCartSuccessState(r));
       });
@@ -42,6 +42,4 @@ class ProductsCubit extends Cubit<ProductsState> {
       emit(AddToCartErrorState(e.toString()));
     }
   }
-  
-  
 }
