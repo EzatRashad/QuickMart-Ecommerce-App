@@ -11,6 +11,13 @@ abstract class HomeRemoteDataSource {
   Future<Either<Failure, ProductResponseEntity>> getProducts();
   Future<Either<Failure, CartResponseEntity>> addToCart(String productId);
   Future<Either<Failure, GetCartResponseEntity>> getCartItems();
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(
+      String productId);
+       Future<Either<Failure, GetCartResponseEntity>> updateCartItemQuantity(
+      String id, String quantity);
+
+      
+
 }
 
 abstract class HomeLocalDataSource {
@@ -18,5 +25,7 @@ abstract class HomeLocalDataSource {
   Future<Either<Failure, CategoryResponseEntity>> getBrands();
   Future<Either<Failure, ProductResponseEntity>> getProducts();
   Future<Either<Failure, CartResponseEntity>> addToCart(String productId);
-  Future<Either<Failure, CartResponseEntity>> getCartItems();
+  Future<Either<Failure, GetCartResponseEntity>> getCartItems();
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(
+      String productId);
 }

@@ -4,8 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/features/home/domain/entities/get_cart_response_entity.dart';
-
-import '../../../../core/utils/assets.gen.dart';
+import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
 
 class CartAndWishProduct extends StatelessWidget {
   const CartAndWishProduct(
@@ -16,7 +15,7 @@ class CartAndWishProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(3.r),
+      padding: EdgeInsets.only(top: 3.h, right: 3.w, bottom: 3.h),
       height: 132.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -29,7 +28,7 @@ class CartAndWishProduct extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              getProductsEntity?.product?.imageCover??"",
+              getProductsEntity?.product?.imageCover ?? "",
               fit: BoxFit.fill,
               width: 120.w,
               height: 132.h,
@@ -78,15 +77,44 @@ class CartAndWishProduct extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 GestureDetector(
+                                    onTap: () {
+                                      GetCartItemsCubit.get(context)
+                                          .updateCartItemQuantity(
+                                              getProductsEntity?.product?.id ??
+                                                  "",
+                                              ((getProductsEntity?.count ?? 0) +
+                                                      1)
+                                                  .toString());
+                                    },
                                     child: Icon(Icons.add, size: 18.sp)),
-                                Text("1"),
+                                Text(getProductsEntity?.count.toString() ?? "0",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w500,
+                                        )),
                                 GestureDetector(
+                                    onTap: () {
+                                      GetCartItemsCubit.get(context)
+                                          .updateCartItemQuantity(
+                                              getProductsEntity?.product?.id ??
+                                                  "",
+                                              ((getProductsEntity?.count ?? 0) -
+                                                      1)
+                                                  .toString());
+                                    },
                                     child: Icon(Icons.minimize, size: 18.sp)),
                               ],
                             ),
                           ),
                           Spacer(),
                           GestureDetector(
+                            onTap: () {
+                              GetCartItemsCubit.get(context).deleteItemFromCart(
+                                  getProductsEntity?.product?.id ?? "");
+                            },
                             child: SvgPicture.asset('assets/images/trash.svg',
                                 height: 22.h),
                           ),

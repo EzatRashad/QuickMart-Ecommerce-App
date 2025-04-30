@@ -38,4 +38,14 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, GetCartResponseEntity>> getCartItems() {
     return homeRemoteDataSource.getCartItems();
   }
+  
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(String id) {
+    return homeRemoteDataSource.deleteItemFromCart(id);
+  }
+  
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> updateCartItemQuantity(String id, String quantity) {
+   return homeRemoteDataSource.updateCartItemQuantity(id, quantity);
+  }
 }

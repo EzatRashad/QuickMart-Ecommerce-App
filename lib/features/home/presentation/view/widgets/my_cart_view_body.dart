@@ -1,15 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/cart_and_wish_product.dart';
-import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/empty_widget.dart';
-import 'package:quick_mart_app/features/home/data/data_source_impl/home_data_source_impl.dart';
-import 'package:quick_mart_app/features/home/data/home_api_service/home_api.dart';
-import 'package:quick_mart_app/features/home/data/repo_impl/home_repo_impl.dart';
-import 'package:quick_mart_app/features/home/domain/use_case/get_cart_items_use_case.dart';
 import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
 import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_state.dart';
 import 'package:quick_mart_app/features/home/presentation/view/widgets/order_details.dart';
@@ -22,47 +17,56 @@ class MyCartViewBody extends StatefulWidget {
 }
 
 class _MyCartViewBodyState extends State<MyCartViewBody> {
-  late final GetCartItemsCubit _getCartItemsCubit;
+  //late final GetCartItemsCubit _getCartItemsCubit;
 
-  @override
-  void initState() {
-    super.initState();
-    _getCartItemsCubit = GetCartItemsCubit(
-      getCartItemsUseCase: GetCartItemsUseCase(
-        HomeRepoImpl(
-          homeRemoteDataSource: HomeRemoteDataSourceImpl(
-            homeApiService: HomeApiService(Dio()),
-          ),
-        ),
-      ),
-    )..getCartItems();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _getCartItemsCubit = GetCartItemsCubit(
+  //     getCartItemsUseCase: GetCartItemsUseCase(
+  //       HomeRepoImpl(
+  //         homeRemoteDataSource: HomeRemoteDataSourceImpl(
+  //           homeApiService: HomeApiService(Dio()),
+  //         ),
+  //       ),
+  //     ),
+  //   )..getCartItems();
+  // }
 
-  @override
-  void dispose() {
-    _getCartItemsCubit.close();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _getCartItemsCubit.close();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _getCartItemsCubit,
-      child: BlocBuilder<GetCartItemsCubit, GetCartItemsState>(
+    return BlocConsumer<GetCartItemsCubit, GetCartItemsState>(
         builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              leading: const SizedBox(),
-              title: Text(
-                "My Cart",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+      return Scaffold(
+        body: SafeArea(child: _buildBody(context, state)),
+      );
+    }, listener: (context, state) {
+      if (state is DeleteItemFromCartLoadingState ||
+          state is UpdateItemInCartLoadingState) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => AlertDialog(
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(
+                  color: AppColors.cyan,
+                ),
+              ],
             ),
-            body: _buildBody(context, state),
-          );
-        },
-      ),
-    );
+          ),
+        );
+      } else {
+        Navigator.of(context).pop();
+      }
+    });
   }
 
   Widget _buildBody(BuildContext context, GetCartItemsState state) {
@@ -85,43 +89,49 @@ class _MyCartViewBodyState extends State<MyCartViewBody> {
 
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        ListView.separated(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: itemsList.length,
-                          itemBuilder: (context, index) {
-                            return CartAndWishProduct(
-                              getProductsEntity: itemsList[index],
-                              isCart: true,
-                            );
-                          },
-                          separatorBuilder: (context, index) => 5.ph,
-                        ),
-                        5.ph,
-                        OrderDetail(subTotal: totalPrice ,),
-                      ],
-                    ),
-                  ),
-                ],
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              pinned: false,
+              floating: true,
+              toolbarHeight: 80.h,
+              leading: FittedBox(
+                child: Text(
+                  'My Cart',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
+              actions: [
+                TextButton(
+                    onPressed: () {},
+                    child: Text('Clear All',
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: Colors.red,
+                                ))),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: CustomButton(
-                text: "Checkout",
-                onPressed: () {
-                  // Add checkout logic here
-                },
-              ),
-            ),
+            SliverToBoxAdapter(
+                child: Column(
+              children: [
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: itemsList.length,
+                  itemBuilder: (context, index) {
+                    return CartAndWishProduct(
+                      getProductsEntity: itemsList[index],
+                      isCart: true,
+                    );
+                  },
+                  separatorBuilder: (context, index) => 5.ph,
+                ),
+                5.ph,
+                OrderDetail(
+                  subTotal: totalPrice,
+                ),
+              ],
+            )),
           ],
         ),
       );

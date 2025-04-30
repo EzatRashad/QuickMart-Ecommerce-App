@@ -9,7 +9,7 @@ import '../../domain/entities/cart_response_entity/cart_response_entity.dart';
 import '../../domain/entities/category_entity.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
-  HomeApiService homeApiService;
+  HomeApiService   homeApiService;
 
   HomeRemoteDataSourceImpl({required this.homeApiService});
 
@@ -78,6 +78,31 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(String productId)async {
+    try {
+      var response = await homeApiService.deleteItemFromCart(productId);
+      return response.fold(
+          (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+          (r) => Right(r));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+  
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> updateCartItemQuantity(String id, String quantity) async{
+     
+    try {
+      var response = await homeApiService.updateCartItemQuantity(id, quantity);
+      return response.fold(
+          (l) => Left(ServerFailure(errorMessage: l.errorMessage)),
+          (r) => Right(r));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
@@ -106,8 +131,14 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   }
 
   @override
-  Future<Either<Failure, CartResponseEntity>> getCartItems() {
+  Future<Either<Failure, GetCartResponseEntity>> getCartItems() {
     // TODO: implement getCartItems
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(String productId) {
+    // TODO: implement deleteItemFromCart
     throw UnimplementedError();
   }
 }

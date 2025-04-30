@@ -92,7 +92,6 @@ class HomeApiService {
 
   Future<Either<Failure, GetCartResponseModel>> getCartItems() async {
     try {
-      
       final response = await _dio.get(
         '${ApiConstants.baseUrl}${ApiConstants.getCartEndPoint}',
         options: Options(
@@ -102,11 +101,73 @@ class HomeApiService {
         ),
       );
       final json = await response.data;
-      var productsResponseModel = GetCartResponseModel.fromJson(json);
-      return Right(productsResponseModel);
+      var getCartitemssResponseModel = GetCartResponseModel.fromJson(json);
+      return Right(getCartitemssResponseModel);
     } catch (exception) {
       String? message;
       if (exception is DioException) {
+        return Left(
+            ServerFailure(errorMessage: exception.response?.data['message']));
+      }
+      return Left(NetworkFailure(errorMessage: exception.toString()));
+    }
+  }
+
+  Future<Either<Failure, GetCartResponseModel>> deleteItemFromCart(
+      String id) async {
+    try {
+      final response = await _dio.delete(
+        '${ApiConstants.baseUrl}${ApiConstants.deleteItem}$id',
+        options: Options(
+          headers: {
+            'token': userToken,
+          },
+        ),
+      );
+      final json = await response.data;
+      var deleteItemFromCartResponseModel = GetCartResponseModel.fromJson(json);
+      return Right(deleteItemFromCartResponseModel);
+    } catch (exception) {
+      String? message;
+      if (exception is DioException) {
+        return Left(
+            ServerFailure(errorMessage: exception.response?.data['message']));
+      }
+      return Left(NetworkFailure(errorMessage: exception.toString()));
+    }
+  }
+
+  Future<Either<Failure, GetCartResponseModel>> updateCartItemQuantity(
+      String id, String quantity) async {
+    try {
+      print("1");
+      print(id);
+      print(quantity);
+      print(userToken);
+
+      final response = await _dio.put(
+        '${ApiConstants.baseUrl}${ApiConstants.updateItem}$id',
+        data: {
+          'count': quantity,
+        },
+
+        options: Options(
+          headers: {
+            'token': userToken,
+          },
+        ),
+      );
+      print("2");
+
+      final json = await response.data;
+      var updateCartItemResponseModel = GetCartResponseModel.fromJson(json);
+      return Right(updateCartItemResponseModel);
+    } catch (exception) {
+      print("3");
+      String? message;
+      print(message);
+      if (exception is DioException) {
+
         return Left(
             ServerFailure(errorMessage: exception.response?.data['message']));
       }

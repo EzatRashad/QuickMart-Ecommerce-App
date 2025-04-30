@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
+import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_state.dart';
 import 'package:quick_mart_app/features/layout/presentation/cubit/layout_cubit.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/assets.gen.dart';
-import '../../../../home/presentation/products_cubit/products_cubit.dart';
-import '../../../../home/presentation/products_cubit/products_states.dart';
-
+ 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key, required this.layoutCubit});
   final LayoutCubit layoutCubit;
@@ -46,9 +46,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: BlocBuilder<ProductsCubit, ProductsState>(
+            icon: BlocBuilder<GetCartItemsCubit, GetCartItemsState>(
               builder: (context, state) {
-                int cartItems = ProductsCubit.get(context).numOfCartItems;
+                num cartItems = GetCartItemsCubit.get(context).numOfCartItems;
                 return Badge(
                   label: Text(cartItems.toString()),
                   child: Padding(

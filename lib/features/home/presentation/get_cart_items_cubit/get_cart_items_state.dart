@@ -17,3 +17,30 @@ class GetCartItemsSErrorState extends GetCartItemsState {
 }
 
 class GetCartItemsLoadingState extends GetCartItemsState {}
+
+class DeleteItemFromCartSuccessState extends GetCartItemsState {
+  GetCartResponseEntity items;
+
+  DeleteItemFromCartSuccessState(this.items);
+}
+
+class DeleteItemFromCartErrorState extends GetCartItemsState {
+  final String message;
+
+  DeleteItemFromCartErrorState(this.message);
+}
+
+class DeleteItemFromCartLoadingState extends GetCartItemsState {}
+
+
+class UpdateItemInCartSuccessState extends GetCartItemsState {
+  GetCartResponseEntity items;
+
+  UpdateItemInCartSuccessState(this.items);
+}
+class UpdateItemInCartErrorState extends GetCartItemsState {
+  final String message;
+
+  UpdateItemInCartErrorState(this.message);
+}
+class UpdateItemInCartLoadingState extends GetCartItemsState {}

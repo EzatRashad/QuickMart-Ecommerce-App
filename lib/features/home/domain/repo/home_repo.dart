@@ -12,4 +12,7 @@ abstract class HomeRepo {
   Future<Either<Failure, ProductResponseEntity>> getProducts();
   Future<Either<Failure, CartResponseEntity>> addToCart(String productId);
   Future<Either<Failure, GetCartResponseEntity>> getCartItems();
+  Future<Either<Failure, GetCartResponseEntity>> deleteItemFromCart(String id);
+  Future<Either<Failure, GetCartResponseEntity>> updateCartItemQuantity(
+      String id, String quantity);
 }

@@ -58,7 +58,8 @@ class ProductItem extends StatelessWidget {
                     right: 5.w,
                     child: GestureDetector(
                       onTap: () {
-                        ProductsCubit.get(context).addToCart(product.id ?? '');
+                        ProductsCubit.get(context)
+                            .addToCart(product.id ?? '', context);
                       },
                       child: Container(
                         alignment: Alignment.center,

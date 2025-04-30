@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_mart_app/features/home/domain/use_case/add_to_cart_use_case.dart';
+import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
 import 'package:quick_mart_app/features/home/presentation/products_cubit/products_states.dart';
 
 import '../../data/models/ProductResponseModel.dart';
@@ -28,15 +29,14 @@ class ProductsCubit extends Cubit<ProductsState> {
     }
   }
 
-  int numOfCartItems = 0;
-  void addToCart(String productId) async {
+  void addToCart(String productId,context) async {
     emit(AddToCartLoadingState());
     try {
       var result = await addToCartUseCase.call(productId);
       result.fold((l) => emit(AddToCartErrorState(l.errorMessage)), (r) {
-        numOfCartItems = r.numOfCartItems ?? 0;
-        print('numOfCartItems: $numOfCartItems');
-        emit(AddToCartSuccessState(r));
+        GetCartItemsCubit.get(context).getCartItems();
+        
+          emit(AddToCartSuccessState(r));
       });
     } catch (e) {
       emit(AddToCartErrorState(e.toString()));
