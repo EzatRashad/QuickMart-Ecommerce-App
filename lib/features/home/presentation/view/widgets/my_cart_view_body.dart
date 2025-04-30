@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart_app/core/utils/app_color.dart';
 import 'package:quick_mart_app/core/utils/utils.dart';
 import 'package:quick_mart_app/core/widgets/cart_and_wish_product.dart';
+import 'package:quick_mart_app/core/widgets/custom_button.dart';
 import 'package:quick_mart_app/core/widgets/empty_widget.dart';
 import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_cubit.dart';
 import 'package:quick_mart_app/features/home/presentation/get_cart_items_cubit/get_cart_items_state.dart';
@@ -87,53 +88,51 @@ class _MyCartViewBodyState extends State<MyCartViewBody> {
         );
       }
 
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              pinned: false,
-              floating: true,
-              toolbarHeight: 80.h,
-              leading: FittedBox(
-                child: Text(
-                  'My Cart',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ),
-              actions: [
+      return Column(
+        children: [
+          SizedBox(height: 20.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('My Cart', style: Theme.of(context).textTheme.titleMedium),
                 TextButton(
-                    onPressed: () {},
-                    child: Text('Clear All',
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: Colors.red,
-                                ))),
+                  onPressed: () {},
+                  child: Text(
+                    'Clear All',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.red,
+                        ),
+                  ),
+                ),
               ],
             ),
-            SliverToBoxAdapter(
-                child: Column(
+          ),
+          Expanded(
+            child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              itemCount: itemsList.length,
+              itemBuilder: (context, index) {
+                return CartAndWishProduct(
+                  getProductsEntity: itemsList[index],
+                  isCart: true,
+                );
+              },
+              separatorBuilder: (context, index) => 5.ph,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+            child: Column(
               children: [
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: itemsList.length,
-                  itemBuilder: (context, index) {
-                    return CartAndWishProduct(
-                      getProductsEntity: itemsList[index],
-                      isCart: true,
-                    );
-                  },
-                  separatorBuilder: (context, index) => 5.ph,
-                ),
-                5.ph,
-                OrderDetail(
-                  subTotal: totalPrice,
-                ),
+                OrderDetail(subTotal: totalPrice),
+                10.ph,
+                CustomButton(text: 'Checkout'),
               ],
-            )),
-          ],
-        ),
+            ),
+          ),
+        ],
       );
     }
   }
