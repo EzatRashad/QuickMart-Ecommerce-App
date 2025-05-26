@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: null
   font_awesome_flutter: null
   provider: null
+  get_it:
   shared_preferences: null
   smooth_page_indicator: ^1.2.0+3
   readmore: null
